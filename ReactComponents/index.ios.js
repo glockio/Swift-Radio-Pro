@@ -14,20 +14,56 @@ class SwiftRadio extends React.Component {
     render() {
         return (
             <View style={styles.container}>
-                <Text> Test</Text>
+
+                <View style={styles.header}>
+                    <Image source={{uri: 'logo'}} style={{width: 126, height: 49}}/>
+                    <Text style={styles.text}>Xcode 7/Swift 2</Text>
+                    <Text style={styles.text}> Radio App</Text>
+                </View>
+
+                <View style={styles.featureList}>
+                    <Txt>
+                        FEATURES: + Displays Artist, Track and Album/Station Art on lock screen.
+                        + Background Audio performance
+                        +Last FM API integration to automatically download album art
+                        + Loads and parses Icecast metadata (i.e. artist & track names)
+                        + Ability to update stations from server without resubmitting to the app store.
+                    </Txt>
+                </View>
             </View>
         );
     }
 }
-// <Image source={{uri: 'background'}} style={{width: 420, height: 680}}>
+
+
+class Txt extends React.Component {
+  render() {
+    return <Text style={textStyles.text}> {this.props.children} </Text>
+  }
+
+}
+
+var textStyles = StyleSheet.create({
+    text: {
+        fontSize: 18,
+        color: 'white'
+    }
+});
+
 
 var styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: "transparent"
     },
     text: {
-        fontSize: 24
+        fontSize: 18,
+        color: 'white'
+    },
+    featureList: {
+
+    },
+    header: {
+
     }
 });
 
