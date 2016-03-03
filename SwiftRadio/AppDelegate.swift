@@ -12,6 +12,8 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    var reactNativeBridge: RCTBridge?
+    var REACT_DEV_MODE: Bool?
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
@@ -21,10 +23,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Make status bar white
         UINavigationBar.appearance().barStyle = .Black
         
+        // Init ReactNativeRootView
+        REACT_DEV_MODE = true
+        
+        // Set location of the main js bundle
+        
+        var jsCodeLocation = NSURL(string: "http://localhost:8081/index.ios.bundle?platform=ios&dev=true")
+        
+        if REACT_DEV_MODE == false {
+            jsCodeLocation = NSBundle.mainBundle().URLForResource("main", withExtension: "jsbundle")
+        }
+        
+    
+        reactNativeBridge = RCTBridge(
+                bundleURL: jsCodeLocation,
+                moduleProvider: nil,
+                launchOptions:launchOptions
+        )
+        
+        
         return true
     }
-
-    func applicationWillResignActive(application: UIApplication) {
+        func applicationWillResignActive(application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
        

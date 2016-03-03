@@ -20,7 +20,6 @@ class ReactNativeAboutViewController: UIViewController {
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        self.title = "React Wrapper (Swift)"
         self.reactView.data = [
             "content": "Welcome to React Native"
         ]

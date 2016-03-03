@@ -85,19 +85,20 @@ class NowPlayingViewController: UIViewController {
             object: nil);
         
         // Check for station change
-        if newStation {
-            track = Track()
-            stationDidChange()
-        } else {
-            updateLabels()
-            albumImageView.image = track.artworkImage
-            
-            if !track.isPlaying {
-                pausePressed()
-            } else {
-                nowPlayingImageView.startAnimating()
-            }
-        }
+//        if newStation {
+//            track = Track()
+////            stationDidChange()
+//            
+//        } else {
+//            updateLabels()
+//            albumImageView.image = track.artworkImage
+//            
+//            if !track.isPlaying {
+//                pausePressed()
+//            } else {
+//                nowPlayingImageView.startAnimating()
+//            }
+//        }
         
         // Setup slider
         setupVolumeSlider()

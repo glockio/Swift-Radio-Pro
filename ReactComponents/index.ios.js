@@ -6,26 +6,25 @@ const {
     AppRegistry,
     StyleSheet,
     Text,
-    View
+    View,
+    Image
 } = React;
 
 class SwiftRadio extends React.Component {
     render() {
         return (
             <View style={styles.container}>
-                <Text style={styles.text}>
-                    Booo YAHHHHH We Are LIVe :DD
-                </Text>
+                <Text> Test</Text>
             </View>
         );
     }
 }
+// <Image source={{uri: 'background'}} style={{width: 420, height: 680}}>
 
 var styles = StyleSheet.create({
     container: {
         flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center'
+        backgroundColor: "transparent"
     },
     text: {
         fontSize: 24
