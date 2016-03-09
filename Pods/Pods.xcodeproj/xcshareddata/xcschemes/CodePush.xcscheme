@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '709611696D3D1CF58ED4DAB6'
-               BlueprintName = 'React'
+               BlueprintIdentifier = 'BCD1A5E0620CCB28F2687293'
+               BlueprintName = 'CodePush'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'libReact.a'>
+               BuildableName = 'libCodePush.a'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

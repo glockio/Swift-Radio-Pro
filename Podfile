@@ -13,5 +13,7 @@ target 'SwiftRadio' do
    ‘RCTWebSocket’
   ]
 
+  pod 'CodePush', :path => './ReactComponents/node_modules/react-native-code-push'
+
 end
 
