@@ -12,9 +12,12 @@ import Foundation
 @objc(CalendarManager)
 class CalendarManager: NSObject {
     
-    @objc func addEvent(name: String) -> Void {
+    @objc func addEvent(name: String, resolver resolve: RCTPromiseResolveBlock, rejecter reject: RCTPromiseRejectBlock) -> Void {
         print(name)
         print("TESTIN")
+        if( name != "") {
+            resolve("IT WORKD")
+        }
         // Date is ready to use!
     }
     

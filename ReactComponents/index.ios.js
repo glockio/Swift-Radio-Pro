@@ -23,8 +23,13 @@ class SwiftRadio extends React.Component {
         }
     }
 
-    _popReactNative() {
-        CalendarManager.addEvent("HELLO MATE")
+    async _popReactNative() {
+        try {
+           var result = await CalendarManager.addEvent("HELLO MATE")
+            console.log(result)
+        } catch (e) {
+           console.error(e);
+        }
     }
 
     render() {

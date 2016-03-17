@@ -12,6 +12,11 @@
 
 @interface RCT_EXTERN_MODULE(CalendarManager, NSObject)
 
-RCT_EXTERN_METHOD(addEvent:(NSString *)name)
+RCT_EXTERN_METHOD(addEvent:
+                            (NSString *)name
+                            resolver:(RCTPromiseResolveBlock)resolve
+                            rejecter:(RCTPromiseRejectBlock)reject)
+                            
+                  
 
 @end
