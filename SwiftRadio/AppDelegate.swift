@@ -24,7 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().barStyle = .Black
 
         // Init ReactNativeRootView
-        REACT_DEV_MODE = false
+        REACT_DEV_MODE = true
 
         // Set location of the main js bundle
 

@@ -26,3 +26,16 @@ Notes:
 
 
 
+RCTRootView, where your React Native app lives.
+
+|----------|   |-RCT_ROOT_VIEW-|
+|          |   |               |
+| NATIVE   |   |    RNUIVIEW   |  <- Where RNAPP LIVES
+|----------|   |----------------
+           Bridge
+ -----------------------------
+
+RCTRootView says where to load JS from, we store this in AppDelgate
+ From There RCTRootView adds a subview
+ ViewController -> Initializes RNView
+

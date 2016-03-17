@@ -9,7 +9,12 @@ const {
     View,
     Image,
     TouchableOpacity,
+    NativeModules,
 } = React;
+
+// import { NativeModules } from 'react-native';
+const CalendarManager = NativeModules.CalendarManager;
+// CalendarManager.addEvent('Birthday Party', '4 Privet Drive, Surrey');
 
 class SwiftRadio extends React.Component {
     componentDidMount(){
@@ -19,8 +24,7 @@ class SwiftRadio extends React.Component {
     }
 
     _popReactNative() {
-        console.log("Work work work work")
-
+        CalendarManager.addEvent("HELLO MATE")
     }
 
     render() {
