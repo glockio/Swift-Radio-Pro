@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3740BE2B1C9A6BB7002407D4 /* ReactNativeAboutViewControllerBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = 3740BE2A1C9A6BB7002407D4 /* ReactNativeAboutViewControllerBridge.m */; };
 		37CF7EC91C7ED8A200C0653E /* ReactNativeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37CF7EC81C7ED8A200C0653E /* ReactNativeView.swift */; };
 		37CF7ED01C7EDED200C0653E /* ReactNativeAboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37CF7ECF1C7EDED200C0653E /* ReactNativeAboutViewController.swift */; };
 		37CF7ED31C7EEF1300C0653E /* main.jsbundle in Resources */ = {isa = PBXBuildFile; fileRef = 37CF7ED21C7EEF1300C0653E /* main.jsbundle */; };
@@ -63,6 +64,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3740BE2A1C9A6BB7002407D4 /* ReactNativeAboutViewControllerBridge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReactNativeAboutViewControllerBridge.m; sourceTree = "<group>"; };
+		3740BE2C1C9A73BD002407D4 /* ReactNativeAboutViewControllerBridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReactNativeAboutViewControllerBridge.h; sourceTree = "<group>"; };
 		37CF7EC81C7ED8A200C0653E /* ReactNativeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReactNativeView.swift; sourceTree = "<group>"; };
 		37CF7ECA1C7ED9DE00C0653E /* SwiftRadio-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SwiftRadio-Bridging-Header.h"; sourceTree = "<group>"; };
 		37CF7ECF1C7EDED200C0653E /* ReactNativeAboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReactNativeAboutViewController.swift; sourceTree = "<group>"; };
@@ -190,6 +193,8 @@
 				37CF7EC81C7ED8A200C0653E /* ReactNativeView.swift */,
 				37CF7ED21C7EEF1300C0653E /* main.jsbundle */,
 				37CF7ECA1C7ED9DE00C0653E /* SwiftRadio-Bridging-Header.h */,
+				3740BE2A1C9A6BB7002407D4 /* ReactNativeAboutViewControllerBridge.m */,
+				3740BE2C1C9A73BD002407D4 /* ReactNativeAboutViewControllerBridge.h */,
 			);
 			path = SwiftRadio;
 			sourceTree = "<group>";
@@ -477,6 +482,7 @@
 				94D260961B45E3FA00DE671C /* AnimationFrames.swift in Sources */,
 				94DB0A9E1B98B762005ED993 /* LoadingView.swift in Sources */,
 				942A3F371AE43DF80011396E /* StationsViewController.swift in Sources */,
+				3740BE2B1C9A6BB7002407D4 /* ReactNativeAboutViewControllerBridge.m in Sources */,
 				94DB0AA41B98B762005ED993 /* SpringButton.swift in Sources */,
 				94DB0A931B98B762005ED993 /* BlurView.swift in Sources */,
 				94DB0AA71B98B762005ED993 /* SpringTextField.swift in Sources */,

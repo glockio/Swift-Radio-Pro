@@ -7,7 +7,8 @@ const {
     StyleSheet,
     Text,
     View,
-    Image
+    Image,
+    TouchableOpacity,
 } = React;
 
 class SwiftRadio extends React.Component {
@@ -16,6 +17,12 @@ class SwiftRadio extends React.Component {
             codePush.sync()
         }
     }
+
+    _popReactNative() {
+        console.log("Work work work work")
+
+    }
+
     render() {
         return (
             <View style={styles.container}>
@@ -35,6 +42,13 @@ class SwiftRadio extends React.Component {
                         + Ability to update stations from server without resubmitting to the app store.
                     </Txt>
                 </View>
+
+                <TouchableOpacity onPress={ () => this._popReactNative() }>
+                    <View style={styles.button}>
+                        <Txt>Work Work Work Work</Txt>
+                    </View>
+                </TouchableOpacity>
+
             </View>
         );
     }
@@ -48,15 +62,14 @@ class Txt extends React.Component {
 
 }
 
-var textStyles = StyleSheet.create({
+const textStyles = StyleSheet.create({
     text: {
         fontSize: 18,
         color: 'white'
     }
 });
 
-
-var styles = StyleSheet.create({
+const styles = StyleSheet.create({
     container: {
         flex: 1,
     },
@@ -68,6 +81,12 @@ var styles = StyleSheet.create({
 
     },
     header: {
+
+    },
+    button: {
+        backgroundColor: 'red',
+        flex: 1,
+        padding: 10,
 
     }
 });
