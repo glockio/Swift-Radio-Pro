@@ -13,8 +13,9 @@ const {
 } = React;
 
 // import { NativeModules } from 'react-native';
-const CalendarManager = NativeModules.CalendarManager;
-// CalendarManager.addEvent('Birthday Party', '4 Privet Drive, Surrey');
+const CalendarManager = NativeModules.CalendarManager
+
+const Routeable = NativeModules.Routeable
 
 class SwiftRadio extends React.Component {
     componentDidMount(){
@@ -30,6 +31,11 @@ class SwiftRadio extends React.Component {
         } catch (e) {
            console.error(e);
         }
+    }
+
+    _popRoute() {
+        console.log("calling pop route")
+        Routeable.popRoute()
     }
 
     render() {
@@ -52,7 +58,7 @@ class SwiftRadio extends React.Component {
                     </Txt>
                 </View>
 
-                <TouchableOpacity onPress={ () => this._popReactNative() }>
+                <TouchableOpacity onPress={ () => this._popRoute() }>
                     <View style={styles.button}>
                         <Txt>Work Work Work Work</Txt>
                     </View>
@@ -74,7 +80,7 @@ class Txt extends React.Component {
 const textStyles = StyleSheet.create({
     text: {
         fontSize: 18,
-        color: 'white'
+        color: 'blue'
     }
 });
 
@@ -84,7 +90,7 @@ const styles = StyleSheet.create({
     },
     text: {
         fontSize: 18,
-        color: 'white'
+        color: 'blue'
     },
     featureList: {
 

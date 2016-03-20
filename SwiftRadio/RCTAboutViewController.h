@@ -11,3 +11,9 @@
 
 
 #endif /* RCTAboutViewController_h */
+
+#import <UIKit/UIKit.h>
+#import "Routeable.h"
+@interface RCTAboutViewController : UIViewController<RouteableDelegate>
+
+@end
