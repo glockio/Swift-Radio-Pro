@@ -66,7 +66,12 @@
 }
 
 -(void)popRoute {
-    [self dismissViewControllerAnimated:YES completion:nil];
+    
+//    [self dismissViewControllerAnimated:YES completion:nil]; // works with modal
+//    navigationController
+//    [navigationController popViewControllerAnimated:true];
+    NSLog([[self navigationController] viewControllers]);
+     [self.navigationController popToRootViewControllerAnimated:NO];
 }
 
 

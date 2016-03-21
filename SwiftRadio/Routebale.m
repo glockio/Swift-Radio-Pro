@@ -12,6 +12,8 @@
 //
 
 #import "Routeable.h"
+#import <UIKit/UIKit.h>
+
 
 @implementation Routeable
 
@@ -19,7 +21,15 @@ RCT_EXPORT_MODULE()
 
 // This is an exported method that is available in JS.
 RCT_EXPORT_METHOD(popRoute) {
-    [self.delegate popRoute];
+//    [self.delegate popRoute];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        UINavigationController *navigationController = (UINavigationController *)[[[[UIApplication sharedApplication] delegate] window] rootViewController];
+        
+        [navigationController popViewControllerAnimated:YES];
+    });
+
 }
+
+
 @end
 
