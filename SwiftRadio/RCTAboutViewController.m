@@ -32,6 +32,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    // Hide Nav Bar
+//    [self.navigationController setNavigationBarHidden:YES];
+    
+    
     self.title = @"Passing Data";
     NSLog(@"VIEW DID LOAD");
     // We need a reference to the AppDelegate since that is where we stored our `RCTBridge`.
@@ -66,13 +70,16 @@
 }
 
 -(void)popRoute {
-    
-//    [self dismissViewControllerAnimated:YES completion:nil]; // works with modal
-//    navigationController
-//    [navigationController popViewControllerAnimated:true];
-    NSLog([[self navigationController] viewControllers]);
      [self.navigationController popToRootViewControllerAnimated:NO];
 }
 
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [self.navigationController setNavigationBarHidden:YES animated:animated]; //it hides
+}
 
+-(void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    [self.navigationController setNavigationBarHidden:NO animated:animated]; // it shows
+}
 @end
