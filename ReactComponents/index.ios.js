@@ -10,13 +10,120 @@ const {
     Image,
     TouchableOpacity,
     NativeModules,
+    Navigator,
 } = React;
 
 // import { NativeModules } from 'react-native';
 const CalendarManager = NativeModules.CalendarManager
-
 const Routeable = NativeModules.Routeable
 
+
+// NavBar
+class NavBar extends React.Component {
+    render() {
+        return(
+            <View>
+                <Text> I am the header</Text>
+            </View>
+        )
+    }
+}
+
+// Define Router
+class Router extends React.Component {
+
+    renderScene(route, nav) {
+        switch (route.name) {
+          case 'aboutPage':
+            return <SwiftRadio nav={nav}/>;
+          case 'testPage':
+            return <TestPage nav={nav}/> ;
+          default:
+            return <SwiftRadio nav={nav}/>;
+        }
+    }
+
+    render() {
+        return(
+            <Navigator
+                initialRoute={ { name: "aboutPage", title: "About Page"} }
+                renderScene={this.renderScene.bind(this)}
+                navigationBar={
+                    <Navigator.NavigationBar
+                        routeMapper={NavigationBarRouteMapper}
+                        style={styles.navBar}
+                    />
+                }
+                configureScene={ (route) => {
+                    if (route.sceneConfig) {
+                      return route.sceneConfig;
+                    }
+                    return Navigator.SceneConfigs.FloatFromRight;
+                }}
+            />
+        )
+    }
+}
+
+
+const NavigationBarRouteMapper = {
+
+  LeftButton: function(route, navigator, index, navState) {
+    let previousRoute;
+    if (index === 0) {
+        previousRoute = {title: 'Native App'}
+    } else {
+        previousRoute = navState.routeStack[index - 1];
+    }
+
+    return (
+      <TouchableOpacity
+        onPress={() => navigator.pop()}
+        style={styles.navBarLeftButton}>
+        <Text style={[styles.navBarText, styles.navBarButtonText]}>
+          {previousRoute.title}
+        </Text>
+      </TouchableOpacity>
+    )
+  },
+
+  RightButton: function(route, navigator, index, navState) {
+    return null;
+  },
+
+  Title: function(route, navigator, index, navState) {
+    return (
+      <Text style={[styles.navBarText, styles.navBarTitleText]}>
+        {route.title}
+      </Text>
+    );
+  },
+
+};
+
+// Test Page
+class TestPage extends React.Component {
+
+    _goBack() {
+        this.props.nav.pop()
+    }
+
+    render(){
+        return(
+            <View>
+                <Text>Test Page here!!</Text>
+                <TouchableOpacity onPress={ () => this._goBack() }>
+                    <View style={styles.button}>
+                        <Txt>Go Back</Txt>
+                    </View>
+                </TouchableOpacity>
+            </View>
+        )
+    }
+}
+
+
+// About Page
 class SwiftRadio extends React.Component {
     componentDidMount(){
         if(!this.props.DEV_MODE) {
@@ -36,6 +143,10 @@ class SwiftRadio extends React.Component {
     _popRoute() {
         console.log("calling pop route")
         Routeable.popRoute()
+    }
+
+    _subPage() {
+        this.props.nav.push({name: "testPage"})
     }
 
     render() {
@@ -64,6 +175,11 @@ class SwiftRadio extends React.Component {
                     </View>
                 </TouchableOpacity>
 
+                <TouchableOpacity onPress={ () => this._subPage() }>
+                    <View style={styles.button}>
+                        <Txt>Sub Page</Txt>
+                    </View>
+                </TouchableOpacity>
             </View>
         );
     }
@@ -87,23 +203,28 @@ const textStyles = StyleSheet.create({
 const styles = StyleSheet.create({
     container: {
         flex: 1,
+        backgroundColor: 'green',
+        paddingTop: 100,
     },
     text: {
         fontSize: 18,
-        color: 'blue'
+        color: 'green'
     },
     featureList: {
-
-    },
-    header: {
 
     },
     button: {
         backgroundColor: 'red',
         flex: 1,
         padding: 10,
+    },
+    navBar: {
+        padding: 10,
+        borderBottomColor: 'green',
+        borderBottomWidth: 2,
+        backgroundColor: 'blue',
 
     }
 });
 
-AppRegistry.registerComponent('SwiftRadio', () => SwiftRadio);
+AppRegistry.registerComponent('SwiftRadio', () => Router);
