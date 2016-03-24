@@ -774,13 +774,49 @@
                     <view key="view" contentMode="scaleToFill" id="zvu-zU-UW7">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="Ak5-q6-2xr" userLabel="Background Image View">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bKF-Fj-mFI" userLabel="ReactNativeWrapper" customClass="RNView">
+                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Ak5-q6-2xr" firstAttribute="top" secondItem="9IL-jU-AVk" secondAttribute="bottom" constant="-64" id="QGP-bb-eU4"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="bKF-Fj-mFI" secondAttribute="trailing" constant="-20" id="TNR-YL-kMn"/>
+                            <constraint firstItem="Ak5-q6-2xr" firstAttribute="leading" secondItem="zvu-zU-UW7" secondAttribute="leadingMargin" constant="-20" id="VQa-xU-G3o"/>
+                            <constraint firstItem="bKF-Fj-mFI" firstAttribute="top" secondItem="9IL-jU-AVk" secondAttribute="bottom" id="Xah-bZ-xHh"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Ak5-q6-2xr" secondAttribute="trailing" constant="-20" id="gSu-EN-Ojk"/>
+                            <constraint firstItem="mWd-g3-yY1" firstAttribute="top" secondItem="bKF-Fj-mFI" secondAttribute="bottom" id="udY-Qc-9Ok"/>
+                            <constraint firstItem="bKF-Fj-mFI" firstAttribute="leading" secondItem="zvu-zU-UW7" secondAttribute="leadingMargin" constant="-20" id="vt9-f7-6ac"/>
+                            <constraint firstItem="mWd-g3-yY1" firstAttribute="top" secondItem="Ak5-q6-2xr" secondAttribute="bottom" id="xpq-KQ-bhO"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="hOy-Ea-o3Z"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ffs-fg-ucN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1015" y="1150"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="muw-Rw-Gio">
+            <objects>
+                <viewController id="1gd-HU-HR2" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="7pf-ha-e8M"/>
+                        <viewControllerLayoutGuide type="bottom" id="bau-3b-iAF"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="l97-8i-pjM">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Nq3-f1-d2H" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
         </scene>
     </scenes>
     <resources>

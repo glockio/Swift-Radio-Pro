@@ -17,7 +17,6 @@ const {
 const CalendarManager = NativeModules.CalendarManager
 const Routeable = NativeModules.Routeable
 
-
 // NavBar
 class NavBar extends React.Component {
     render() {
@@ -65,7 +64,6 @@ class Router extends React.Component {
     }
 }
 
-
 const NavigationBarRouteMapper = {
 
   LeftButton: function(route, navigator, index, navState) {
@@ -110,7 +108,7 @@ class TestPage extends React.Component {
 
     render(){
         return(
-            <View>
+            <View style={styles.container}>
                 <Text>Test Page here!!</Text>
                 <TouchableOpacity onPress={ () => this._goBack() }>
                     <View style={styles.button}>
@@ -222,8 +220,10 @@ const styles = StyleSheet.create({
         padding: 10,
         borderBottomColor: 'green',
         borderBottomWidth: 2,
-        backgroundColor: 'blue',
-
+        backgroundColor: 'rgba(0,0,0,0.5)',
+    },
+    navBarText: {
+        color: 'white',
     }
 });
 
