@@ -68,15 +68,18 @@ const NavigationBarRouteMapper = {
 
   LeftButton: function(route, navigator, index, navState) {
     let previousRoute;
+    let onBackPressHandler
     if (index === 0) {
         previousRoute = {title: 'Native App'}
+        onBackPressHandler = () => Routeable.popRoute()
     } else {
-        previousRoute = navState.routeStack[index - 1];
+        previousRoute = navState.routeStack[index - 1]
+        onBackPressHandler = () => navigator.pop()
     }
 
     return (
       <TouchableOpacity
-        onPress={() => navigator.pop()}
+        onPress={onBackPressHandler}
         style={styles.navBarLeftButton}>
         <Text style={[styles.navBarText, styles.navBarButtonText]}>
           {previousRoute.title}
@@ -148,6 +151,7 @@ class SwiftRadio extends React.Component {
     }
 
     render() {
+        // return null
         return (
             <View style={styles.container}>
 
@@ -201,7 +205,7 @@ const textStyles = StyleSheet.create({
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: 'green',
+        // backgroundColor: 'transparent',
         paddingTop: 100,
     },
     text: {

@@ -36,7 +36,6 @@
     [super viewDidLoad];
     
 
-    
     // We need a reference to the AppDelegate since that is where we stored our `RCTBridge`.
     AppDelegate *delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     
@@ -59,6 +58,18 @@
     // We want this view to take up the entire screen.
     rootView.frame = [UIScreen mainScreen].bounds;
     
+    // Set Background image to prevent white flash
+    UIImageView *backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"background"]];
+    // We want background Image to take up entire screen
+    backgroundView.frame = [UIScreen mainScreen].bounds;
+    // Add background image
+    [self.view addSubview:backgroundView];
+    
+    
+    // Set rootview backgroundColor to transparent so we see background image on load
+    rootView.backgroundColor = [UIColor colorWithWhite:1.0 alpha:0.0];
+    
+
     // Here is where we pass down our data that will be a `prop` in the `PassingData` component.
     //    rootView.initialProperties = [self data];
     
