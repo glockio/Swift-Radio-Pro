@@ -34,7 +34,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
 
     // We need a reference to the AppDelegate since that is where we stored our `RCTBridge`.
     AppDelegate *delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
@@ -83,13 +82,21 @@
      [self.navigationController popToRootViewControllerAnimated:NO];
 }
 
+// Hide Nav Bar
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:YES animated:animated]; //it hides
+
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
     [self.navigationController setNavigationBarHidden:NO animated:animated]; // it shows
+}
+
+// Set status bar color back to white
+// http://stackoverflow.com/questions/30429421/ios8-change-status-bar-color-without-using-uinavigationbar
+- (UIStatusBarStyle)preferredStatusBarStyle {
+    return UIStatusBarStyleLightContent;
 }
 @end

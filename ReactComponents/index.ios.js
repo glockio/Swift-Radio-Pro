@@ -11,6 +11,7 @@ const {
     TouchableOpacity,
     NativeModules,
     Navigator,
+    InteractionManager
 } = React;
 
 // import { NativeModules } from 'react-native';
@@ -127,9 +128,11 @@ class TestPage extends React.Component {
 // About Page
 class SwiftRadio extends React.Component {
     componentDidMount(){
-        if(!this.props.DEV_MODE) {
-            codePush.sync()
-        }
+        InteractionManager.runAfterInteractions( () => {
+            if(!this.props.DEV_MODE) {
+              codePush.sync()
+            }
+        })
     }
 
     async _popReactNative() {
@@ -151,7 +154,6 @@ class SwiftRadio extends React.Component {
     }
 
     render() {
-        // return null
         return (
             <View style={styles.container}>
 
@@ -206,7 +208,7 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         // backgroundColor: 'transparent',
-        paddingTop: 100,
+        paddingTop: 75,
     },
     text: {
         fontSize: 18,
@@ -221,10 +223,14 @@ const styles = StyleSheet.create({
         padding: 10,
     },
     navBar: {
-        padding: 10,
-        borderBottomColor: 'green',
-        borderBottomWidth: 2,
-        backgroundColor: 'rgba(0,0,0,0.5)',
+        // padding: 30,
+        "height": 64,
+        // "padding": 100,
+        // borderBottomColor: 'green',
+        // borderBottomWidth: 2,
+        // backgroundColor:'blue',
+        // "marginTop": 20,
+        backgroundColor: 'rgb(44,44,49)',
     },
     navBarText: {
         color: 'white',
