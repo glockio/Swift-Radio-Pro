@@ -66,7 +66,7 @@ class Router extends React.Component {
 
         return(
             <Navigator
-            initialRoute={ { name: "aboutPage", title: "About Page", icon:'ios-book'} }
+            initialRoute={ { name: "aboutPage", title: "Features", icon:'ios-book'} }
             renderScene={this.renderScene.bind(this)}
             navigationBar={
                 <Navigator.NavigationBar
@@ -111,7 +111,7 @@ const NavigationBarRouteMapper = {
 
   RightButton: function(route, navigator, index, navState) {
     if(route.icon) {
-        return <View style={{paddingTop:8, marginRight:15}}><Icon name={route.icon} size={25} style={{color: 'white'}}/></View>
+        return <View style={{paddingTop:10, marginRight:25}}><Icon name={route.icon} size={23} style={{color: 'white'}}/></View>
     } else {
         return null;
     }
