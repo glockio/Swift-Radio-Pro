@@ -9,12 +9,12 @@
     "staging-history": "code-push deployment history swiftRadio Staging",
     "prod-history": "code-push deployment history swiftRadio Production",
     "push-staging": "code-push release-react swiftRadio ios --deploymentName Staging"
-
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "react-native": "^0.20.0",
-    "react-native-code-push": "^1.8.0-beta"
+    "react-native-code-push": "^1.8.0-beta",
+    "react-native-vector-icons": "^1.3.2"
   }
 }

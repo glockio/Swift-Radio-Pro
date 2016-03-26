@@ -22,17 +22,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         // Make status bar white
         UINavigationBar.appearance().barStyle = .Black
+        
+        // Because we will hide Nav bar
+        UIApplication.sharedApplication().statusBarStyle = .LightContent
 
         // Init ReactNativeRootView
-        REACT_DEV_MODE = false
+        REACT_DEV_MODE = true
 
         // Set location of the main js bundle
 
         var jsCodeLocation = NSURL(string: "http://localhost:8081/index.ios.bundle?platform=ios&dev=true")
 
         if REACT_DEV_MODE == false {
-            jsCodeLocation = CodePush.bundleURL()
-            // jsCodeLocation = NSBundle.mainBundle().URLForResource("main", withExtension: "jsbundle")
+//            jsCodeLocation = CodePush.bundleURL()
+             jsCodeLocation = NSBundle.mainBundle().URLForResource("main", withExtension: "jsbundle")
+            
         }
 
 
