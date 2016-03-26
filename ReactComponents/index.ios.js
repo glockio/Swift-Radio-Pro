@@ -78,7 +78,7 @@ class Router extends React.Component {
                 if (route.sceneConfig) {
                   return route.sceneConfig;
                 }
-                return Navigator.SceneConfigs.FloatFromRight;
+                return Navigator.SceneConfigs.HorizontalSwipeJump;
             }}
             />
         )
@@ -137,18 +137,20 @@ class TestPage extends React.Component {
     render(){
         return(
             <View style={styles.container}>
-                <Text>Test Page here!!</Text>
-                <TouchableOpacity onPress={ () => this._goBack() }>
-                    <View style={styles.button}>
-                        <Txt>Go Back</Txt>
-                    </View>
-                </TouchableOpacity>
+                <View style={[styles.container, styles.body]}>
+                    <Txt>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sed, et veritatis. Laborum aliquam optio animi sunt commodi magnam consectetur, sequi accusamus ipsum, quis veritatis officia harum, amet voluptatibus iure. Ipsum.</Txt>
+                </View>
+                <View style={styles.footer}>
+                    <TouchableOpacity onPress={ () => this._goBack() }>
+                        <View style={styles.button}>
+                            <Txt>Go Back</Txt>
+                        </View>
+                    </TouchableOpacity>
+                </View>
             </View>
         )
     }
 }
-
-
 // About Page
 class SwiftRadio extends React.Component {
     componentDidMount(){
@@ -174,7 +176,7 @@ class SwiftRadio extends React.Component {
     }
 
     _subPage() {
-        this.props.nav.push({name: "testPage"})
+        this.props.nav.push({name: "testPage", title:'Info'})
     }
 
     render() {
@@ -205,6 +207,12 @@ class SwiftRadio extends React.Component {
                 </View>
 
                 <View style={styles.footer}>
+                    <TouchableOpacity onPress={ () => this._subPage() }>
+                        <View style={styles.button}>
+                            <Txt style={{fontWeight: '500'}}>Info</Txt>
+                        </View>
+                    </TouchableOpacity>
+
                     <TouchableOpacity onPress={ () => this._popRoute() }>
                         <View style={styles.button}>
                             <Txt style={{fontWeight: '500'}}>Okay</Txt>
@@ -217,11 +225,6 @@ class SwiftRadio extends React.Component {
     }
 }
 
-// <TouchableOpacity onPress={ () => this._subPage() }>
-//     <View style={styles.button}>
-//         <Txt>Sub Page!!!!!</Txt>
-//     </View>
-// </TouchableOpacity>
 
 
 class Txt extends React.Component {
@@ -233,13 +236,9 @@ class Txt extends React.Component {
 
 const textStyles = StyleSheet.create({
     text: {
-        // Avenir Next Regular 16.0
         fontSize: 16,
         fontFamily: 'Avenir Next',
         color: 'white',
-        // fontWeight: '500'
-        // fontStyle:"medium",
-
     }
 });
 
@@ -250,7 +249,6 @@ const styles = StyleSheet.create({
     text: {
         fontSize: 18,
     },
-
     featureList: {
         marginTop: 15,
         marginLeft: 5
