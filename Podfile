@@ -15,5 +15,7 @@ target 'SwiftRadio' do
 
   pod 'CodePush', :path => './ReactComponents/node_modules/react-native-code-push'
 
+  pod 'RNVectorIcons', :path => './ReactComponents/node_modules/react-native-vector-icons'
+
 end
 

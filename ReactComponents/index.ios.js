@@ -1,6 +1,6 @@
-'use strict';
 import React from 'react-native';
 import codePush from "react-native-code-push";
+import Icon from "react-native-vector-icons/Ionicons";
 
 const {
     AppRegistry,
@@ -9,6 +9,7 @@ const {
     View,
     Image,
     TouchableOpacity,
+    TouchableHighlight,
     NativeModules,
     Navigator,
     InteractionManager
@@ -18,13 +19,26 @@ const {
 const CalendarManager = NativeModules.CalendarManager
 const Routeable = NativeModules.Routeable
 
-// NavBar
-class NavBar extends React.Component {
-    render() {
+class Screen extends React.Component {
+    _getNavHeight() {
+        try {
+            // Try and get navBarTotal height
+            this.props.nav.props.navigationBar.props.navigationStyles.General.TotalNavHeight
+        } catch(error) {
+            if (error instanceof TypeError) {
+                undefined
+            } else {
+                throw error
+            }
+        }
+    }
+    render(){
+        const navBarOffset = this._getNavHeight() || 64
+        // HOC to apply navBarOffset set flex:1 on the rest of the page content
         return(
-            <View>
-                <Text> I am the header</Text>
-            </View>
+        <View style={{marginTop: navBarOffset, flex: 1}}>
+            {React.cloneElement(this.props.children, {nav: this.props.nav})}
+        </View>
         )
     }
 }
@@ -33,33 +47,39 @@ class NavBar extends React.Component {
 class Router extends React.Component {
 
     renderScene(route, nav) {
+        let Scene = undefined
         switch (route.name) {
           case 'aboutPage':
-            return <SwiftRadio nav={nav}/>;
+           Scene = <SwiftRadio/>
+           break
           case 'testPage':
-            return <TestPage nav={nav}/> ;
+            Scene = <TestPage/>
+            break
           default:
-            return <SwiftRadio nav={nav}/>;
+            Scene = <SwiftRadio/>
         }
+
+        return <Screen nav={nav}>{Scene}</Screen>
     }
 
     render() {
+
         return(
             <Navigator
-                initialRoute={ { name: "aboutPage", title: "About Page"} }
-                renderScene={this.renderScene.bind(this)}
-                navigationBar={
-                    <Navigator.NavigationBar
-                        routeMapper={NavigationBarRouteMapper}
-                        style={styles.navBar}
-                    />
+            initialRoute={ { name: "aboutPage", title: "About Page", icon:'ios-book'} }
+            renderScene={this.renderScene.bind(this)}
+            navigationBar={
+                <Navigator.NavigationBar
+                    routeMapper={NavigationBarRouteMapper}
+                    style={styles.navBar}
+                />
+            }
+            configureScene={ (route) => {
+                if (route.sceneConfig) {
+                  return route.sceneConfig;
                 }
-                configureScene={ (route) => {
-                    if (route.sceneConfig) {
-                      return route.sceneConfig;
-                    }
-                    return Navigator.SceneConfigs.FloatFromRight;
-                }}
+                return Navigator.SceneConfigs.FloatFromRight;
+            }}
             />
         )
     }
@@ -82,22 +102,26 @@ const NavigationBarRouteMapper = {
       <TouchableOpacity
         onPress={onBackPressHandler}
         style={styles.navBarLeftButton}>
-        <Text style={[styles.navBarText, styles.navBarButtonText]}>
-          {previousRoute.title}
+        <Text style={[styles.navBarText, {marginLeft: 15, paddingTop: 5}]}>
+          <Icon name="ios-arrow-back" size={35} style={{padding: 10}}/>
         </Text>
       </TouchableOpacity>
     )
   },
 
   RightButton: function(route, navigator, index, navState) {
-    return null;
+    if(route.icon) {
+        return <View style={{paddingTop:8, marginRight:15}}><Icon name={route.icon} size={25} style={{color: 'white'}}/></View>
+    } else {
+        return null;
+    }
   },
 
   Title: function(route, navigator, index, navState) {
     return (
-      <Text style={[styles.navBarText, styles.navBarTitleText]}>
+      <Txt style={[styles.navBarText, {paddingTop: 8}]}>
         {route.title}
-      </Text>
+      </Txt>
     );
   },
 
@@ -156,83 +180,103 @@ class SwiftRadio extends React.Component {
     render() {
         return (
             <View style={styles.container}>
+                <View style={[styles.container, styles.body]}>
+                    <View style={{flex:0,flexDirection:'row'}}>
 
-                <View style={styles.header}>
-                    <Image source={{uri: 'logo'}} style={{width: 126, height: 49}}/>
-                    <Text style={styles.text}>Xcode 7/Swift 2 CHANGED!!!</Text>
-                    <Text style={styles.text}> Radio App</Text>
+                        <View style={{flex: 4}}>
+                            <Image source={{uri: 'logo'}} style={{width: 126, height: 49}}/>
+                        </View>
+                        <View style={{flex: 8}}>
+                            <Txt style={[styles.text, {fontWeight: '400'}]}>Xcode 7/Swift 2</Txt>
+                            <Txt style={styles.text}> Radio App</Txt>
+                        </View>
+                    </View>
+
+                    <View style={styles.featureList}>
+                        <Txt>
+                            FEATURES:{'\n'}
+                            + Displays Artist, Track and Album/Station Art on lock screen.{'\n'}
+                            + Background Audio performance{'\n'}
+                            + Last FM API integration to automatically download album art {'\n'}
+                            + Loads and parses Icecast metadata (i.e. artist & track names) {'\n'}
+                            + Ability to update stations from server without resubmitting to the app store.
+                        </Txt>
+                    </View>
                 </View>
 
-                <View style={styles.featureList}>
-                    <Txt>
-                        FEATURES: + Displays Artist, Track and Album/Station Art on lock screen.
-                        + Background Audio performance
-                        +Last FM API integration to automatically download album art
-                        + Loads and parses Icecast metadata (i.e. artist & track names)
-                        + Ability to update stations from server without resubmitting to the app store.
-                    </Txt>
+                <View style={styles.footer}>
+                    <TouchableOpacity onPress={ () => this._popRoute() }>
+                        <View style={styles.button}>
+                            <Txt style={{fontWeight: '500'}}>Okay</Txt>
+                        </View>
+                    </TouchableOpacity>
                 </View>
 
-                <TouchableOpacity onPress={ () => this._popRoute() }>
-                    <View style={styles.button}>
-                        <Txt>Work Work Work Work</Txt>
-                    </View>
-                </TouchableOpacity>
-
-                <TouchableOpacity onPress={ () => this._subPage() }>
-                    <View style={styles.button}>
-                        <Txt>Sub Page</Txt>
-                    </View>
-                </TouchableOpacity>
             </View>
         );
     }
 }
 
+// <TouchableOpacity onPress={ () => this._subPage() }>
+//     <View style={styles.button}>
+//         <Txt>Sub Page!!!!!</Txt>
+//     </View>
+// </TouchableOpacity>
+
 
 class Txt extends React.Component {
   render() {
-    return <Text style={textStyles.text}> {this.props.children} </Text>
+    return <Text style={[textStyles.text, this.props.style]}> {this.props.children} </Text>
   }
 
 }
 
 const textStyles = StyleSheet.create({
     text: {
-        fontSize: 18,
-        color: 'blue'
+        // Avenir Next Regular 16.0
+        fontSize: 16,
+        fontFamily: 'Avenir Next',
+        color: 'white',
+        // fontWeight: '500'
+        // fontStyle:"medium",
+
     }
 });
 
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        // backgroundColor: 'transparent',
-        paddingTop: 75,
     },
     text: {
         fontSize: 18,
-        color: 'green'
     },
-    featureList: {
 
+    featureList: {
+        marginTop: 15,
+        marginLeft: 5
     },
+    body: {
+        marginTop: 10,
+        padding: 10
+    },
+
+    footer: {
+        padding: 10
+    },
+
     button: {
-        backgroundColor: 'red',
+        backgroundColor: 'rgb(38,38,40)',
         flex: 1,
-        padding: 10,
+        borderRadius: 0,
+        padding: 8,
+        margin: 10,
+        alignItems: 'center',
     },
     navBar: {
-        // padding: 30,
-        "height": 64,
-        // "padding": 100,
-        // borderBottomColor: 'green',
-        // borderBottomWidth: 2,
-        // backgroundColor:'blue',
-        // "marginTop": 20,
         backgroundColor: 'rgb(44,44,49)',
     },
     navBarText: {
+        fontSize: 20,
         color: 'white',
     }
 });

@@ -14,7 +14,7 @@
 		37CF7EC91C7ED8A200C0653E /* ReactNativeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37CF7EC81C7ED8A200C0653E /* ReactNativeView.swift */; };
 		37CF7ED01C7EDED200C0653E /* ReactNativeAboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37CF7ECF1C7EDED200C0653E /* ReactNativeAboutViewController.swift */; };
 		37CF7ED31C7EEF1300C0653E /* main.jsbundle in Resources */ = {isa = PBXBuildFile; fileRef = 37CF7ED21C7EEF1300C0653E /* main.jsbundle */; };
-		87A0ECE81CA35B7100FF4DDB /* RNView.m in Sources */ = {isa = PBXBuildFile; fileRef = 87A0ECE71CA35B7100FF4DDB /* RNView.m */; settings = {ASSET_TAGS = (); }; };
+		87A0ECE81CA35B7100FF4DDB /* RNView.m in Sources */ = {isa = PBXBuildFile; fileRef = 87A0ECE71CA35B7100FF4DDB /* RNView.m */; };
 		9409E11C1ABF6FEA00312E2B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9409E11B1ABF6FEA00312E2B /* AppDelegate.swift */; };
 		9409E1241ABF6FEA00312E2B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9409E1221ABF6FEA00312E2B /* Main.storyboard */; };
 		9409E1261ABF6FEA00312E2B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9409E1251ABF6FEA00312E2B /* Images.xcassets */; };
