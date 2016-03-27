@@ -34,6 +34,7 @@ class NowPlayingViewController: UIViewController {
     @IBOutlet weak var songLabel: SpringLabel!
     @IBOutlet weak var stationDescLabel: UILabel!
     @IBOutlet weak var volumeParentView: UIView!
+    @IBOutlet weak var reactNativeControlsView: RNPlayControlsView!
     @IBOutlet weak var slider = UISlider()
     
     var currentStation: RadioStation!
@@ -55,6 +56,18 @@ class NowPlayingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+    
+        let stationData: [String:String] = [
+            "stationName" : currentStation.stationName,
+            "stationStreamURL":currentStation.stationStreamURL,
+            "stationImageURL":currentStation.stationImageURL,
+            "stationDesc":currentStation.stationDesc,
+            "stationLongDesc":currentStation.stationLongDesc
+        ]
+        
+        // Init React Native Controls View
+        reactNativeControlsView.initializeReactView(stationData)
+        
         // Set AlbumArtwork Constraints
         optimizeForDeviceSize()
 
@@ -70,20 +83,20 @@ class NowPlayingViewController: UIViewController {
         // streaming library/SDK. Preferably one that supports interruptions, etc.
         // Most of the good streaming libaries are in Obj-C, however they
         // will work nicely with this Swift code.
-        setupPlayer()
+//        setupPlayer()
         
         // Notification for when app becomes active
-        NSNotificationCenter.defaultCenter().addObserver(self,
-            selector: "didBecomeActiveNotificationReceived",
-            name:"UIApplicationDidBecomeActiveNotification",
-            object: nil)
-        
-        // Notification for MediaPlayer metadata updated
-        NSNotificationCenter.defaultCenter().addObserver(self,
-            selector: Selector("metadataUpdated:"),
-            name:MPMoviePlayerTimedMetadataUpdatedNotification,
-            object: nil);
-        
+//        NSNotificationCenter.defaultCenter().addObserver(self,
+//            selector: "didBecomeActiveNotificationReceived",
+//            name:"UIApplicationDidBecomeActiveNotification",
+//            object: nil)
+//        
+//        // Notification for MediaPlayer metadata updated
+//        NSNotificationCenter.defaultCenter().addObserver(self,
+//            selector: Selector("metadataUpdated:"),
+//            name:MPMoviePlayerTimedMetadataUpdatedNotification,
+//            object: nil);
+//        
         // Check for station change
 //        if newStation {
 //            track = Track()
@@ -101,7 +114,7 @@ class NowPlayingViewController: UIViewController {
 //        }
         
         // Setup slider
-        setupVolumeSlider()
+//        setupVolumeSlider()
     }
     
     func didBecomeActiveNotificationReceived() {

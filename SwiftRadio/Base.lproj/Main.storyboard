@@ -414,6 +414,10 @@
                                     <constraint firstItem="Ygz-Co-31f" firstAttribute="top" secondItem="dtX-QN-LoN" secondAttribute="top" constant="22" id="tyF-Wg-6BH"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="n15-bI-UW9" userLabel="RN PlayControls View" customClass="RNPlayControlsView">
+                                <rect key="frame" x="79" y="165" width="138" height="70"/>
+                                <color key="backgroundColor" red="1" green="0.33756238560397955" blue="0.28914662056680573" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -452,6 +456,7 @@
                         <outlet property="artistLabel" destination="v3l-q6-g0h" id="s0B-6Y-MWu"/>
                         <outlet property="pauseButton" destination="k7t-tN-2wp" id="hY6-Tz-wKV"/>
                         <outlet property="playButton" destination="D3H-co-r2v" id="7vv-MG-kTG"/>
+                        <outlet property="reactNativeControlsView" destination="n15-bI-UW9" id="cmW-tO-aal"/>
                         <outlet property="songLabel" destination="KC8-ZG-rx5" id="tNh-3K-qWW"/>
                         <outlet property="stationDescLabel" destination="RA9-OX-Xr1" id="uAM-NB-RRM"/>
                         <outlet property="volumeParentView" destination="zuj-rb-EKQ" id="KFg-Rk-y3Q"/>
@@ -799,6 +804,23 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nq3-f1-d2H" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="385" y="-34"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="AGW-8S-DHH">
+            <objects>
+                <viewController id="iaI-s4-Skr" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="EXE-GC-CzK"/>
+                        <viewControllerLayoutGuide type="bottom" id="8h5-il-sgD"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="iNn-bk-ARk">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VU8-9E-l26" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
         </scene>
     </scenes>
     <resources>

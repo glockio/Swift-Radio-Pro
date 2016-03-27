@@ -1,6 +1,7 @@
 import React from 'react-native';
 import codePush from "react-native-code-push";
 import Icon from "react-native-vector-icons/Ionicons";
+import PlayControls from './playControls'
 
 const {
     AppRegistry,
@@ -280,3 +281,4 @@ const styles = StyleSheet.create({
 });
 
 AppRegistry.registerComponent('SwiftRadio', () => Router);
+AppRegistry.registerComponent('PlayControls', () => PlayControls);
