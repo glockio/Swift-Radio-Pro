@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '226B833BC65F55A8B48EE0C7'
+               BlueprintIdentifier = '2F6B3415DB11736773BBB27B'
                BlueprintName = 'CodePush'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'libCodePush.a'>
