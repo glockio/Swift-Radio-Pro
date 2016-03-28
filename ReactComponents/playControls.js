@@ -18,17 +18,21 @@ class PlayControls extends React.Component {
   constructor() {
     super()
     this.state = {
-      isPlaying: true,
+      isPlaying: true
     }
   }
-
   componentDidMount() {
-    console.log(this.props)
-    MediaPlayer.setStation(this.props)
+    // We want to render right away so make sure all code is nonblocking
+    const props = this.props;
+    // A bit confused. Bridge should be async but making this call can delay rendering
+    // Need to debug more
+    setTimeout( () => MediaPlayer.setStation(props), 0)
+    // InteractionManager.runAfterInteractions( () => {
+    //   // Use this if you want to update placeholder content
+    // })
   }
 
   _play() {
-    console.log("calling play in JS land")
     MediaPlayer.play()
     this.setState({
       isPlaying: true,
@@ -43,17 +47,21 @@ class PlayControls extends React.Component {
   }
 
   render(){
-    return(
-      <View style={{backgroundColor:'red'}}>
-        <TouchableOpacity onPress={ () => this._play()}>
-          <Image source={{uri: 'btn-play'}} style={{width: 45, height: 45}}/>
-        </TouchableOpacity>
-        <TouchableOpacity onPress= { () => this._pause()}>
-          <Image source={{uri: 'btn-pause'}} style={{width: 45, height: 45}}/>
-        </TouchableOpacity>
+    let pauseButtonOpacity, playButtonOpacity = 1
+    if(this.state.isPlaying) {
+      pauseButtonOpacity = 0.5
+    } else {
+      playButtonOpacity = 0.5
+    }
 
-        <Text>{this.props.stationName}</Text>
-        <Text>Is playing: {this.state.isPlaying ? "Playing" : "Pause"}</Text>
+    return(
+      <View style={{flex:1, alignItems:'center', justifyContent:'center', flexDirection:'row',overflow:'hidden'}}>
+        <TouchableHighlight onPress= { () => this._pause()} activeOpacity={0.80} underlayColor={'transparent'}>
+          <Image source={{uri: 'btn-pause'}} style={{width: 45, height: 45, marginRight: 10, opacity:pauseButtonOpacity}}/>
+        </TouchableHighlight>
+        <TouchableHighlight onPress={ () => this._play()} activeOpacity={0.80} underlayColor={'transparent'}>
+          <Image source={{uri: 'btn-play'}} style={{width: 45, height: 45, opacity:playButtonOpacity}}/>
+        </TouchableHighlight>
       </View>
     )
   }

@@ -6,7 +6,6 @@
 //  Copyright © 2016 CodeMarket.io. All rights reserved.
 //
 
-
 // Playable.m
 #import <MediaPlayer/MediaPlayer.h>
 #import "Playable.h"
@@ -36,10 +35,9 @@ RCT_EXPORT_METHOD(setStation:(NSDictionary *)stationData)
     
 }
 
-
 -(void) changeStation: (NSString*)stationURL {
     if (currentStationURL == stationURL) {
-        NSLog(@"Same Station");
+        NSLog(@"Same Station...");
     } else {
         _moviePlayer.contentURL = [NSURL URLWithString:stationURL];
         _moviePlayer.movieSourceType = MPMovieSourceTypeStreaming;

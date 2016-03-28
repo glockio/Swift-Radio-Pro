@@ -92,3 +92,8 @@ The Bridge: Flexiable
 
 // creates getters and setters. Bridge is defined as a property in RCTViewManager.h
 @synthesize bridge = _bridge;
+
+
+SPY:  MESSAGE QUEUE
+
+-> Slow rendering of my initial component. I think its because in componentWillMount I am making a call but all calls are batched.

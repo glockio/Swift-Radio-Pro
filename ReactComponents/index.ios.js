@@ -64,7 +64,6 @@ class Router extends React.Component {
     }
 
     render() {
-
         return(
             <Navigator
             initialRoute={ { name: "aboutPage", title: "Features", icon:'ios-book'} }
@@ -103,7 +102,7 @@ const NavigationBarRouteMapper = {
       <TouchableOpacity
         onPress={onBackPressHandler}
         style={styles.navBarLeftButton}>
-        <Text style={[styles.navBarText, {marginLeft: 15, paddingTop: 5}]}>
+        <Text style={[styles.navBarText, {paddingLeft: 15, paddingTop: 5, paddingRight: 20}]}>
           <Icon name="ios-arrow-back" size={35} style={{padding: 10}}/>
         </Text>
       </TouchableOpacity>
@@ -155,11 +154,11 @@ class TestPage extends React.Component {
 // About Page
 class SwiftRadio extends React.Component {
     componentDidMount(){
-        InteractionManager.runAfterInteractions( () => {
-            if(!this.props.DEV_MODE) {
-              codePush.sync()
-            }
-        })
+        // InteractionManager.runAfterInteractions( () => {
+        //     if(!this.props.DEV_MODE) {
+        //       codePush.sync()
+        //     }
+        // })
     }
 
     async _popReactNative() {

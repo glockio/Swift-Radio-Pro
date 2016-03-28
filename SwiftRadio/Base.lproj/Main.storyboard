@@ -414,9 +414,8 @@
                                     <constraint firstItem="Ygz-Co-31f" firstAttribute="top" secondItem="dtX-QN-LoN" secondAttribute="top" constant="22" id="tyF-Wg-6BH"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="n15-bI-UW9" userLabel="RN PlayControls View" customClass="RNPlayControlsView">
+                            <view opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="n15-bI-UW9" userLabel="RN PlayControls View" customClass="RNPlayControlsView">
                                 <rect key="frame" x="79" y="165" width="138" height="70"/>
-                                <color key="backgroundColor" red="1" green="0.33756238560397955" blue="0.28914662056680573" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>

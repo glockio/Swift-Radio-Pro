@@ -33,6 +33,8 @@
     // We want RN View to take up entire controls view
     rootView.frame = self.bounds;
     
+    rootView.backgroundColor = [UIColor colorWithWhite:0.0 alpha:0.0];
+    
     // Each `ViewController` comes with it's own "base" view, here we just want to add our `RCTRootView`
     // to that "base" view so that it is visible on the screen.
     [self addSubview:rootView];
