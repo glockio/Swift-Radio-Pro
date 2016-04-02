@@ -9,7 +9,9 @@ const {
     TouchableOpacity,
     TouchableHighlight,
     NativeModules,
-    InteractionManager
+    InteractionManager,
+    DeviceEventEmitter,
+
 } = React;
 
 const MediaPlayer = NativeModules.Playable
@@ -19,24 +21,27 @@ class PlayControls extends React.Component {
   constructor() {
     super()
     this.state = {
-      isPlaying: true
+      isPlaying: true,
+      isLoading: true
     }
   }
 
-
   componentDidMount() {
-    // We want to render right away so make sure all code is nonblocking
     const props = this.props;
 
     this.frameRequest = requestAnimationFrame( () => {
       MediaPlayer.setStation(props)
     })
 
-
+    this.onLoadStateChangeSubscription = DeviceEventEmitter.once("Playable.onLoadStateChange", () => {
+      this.setState({isLoading: false})
+    })
   }
 
   componentWillUnmount() {
-    cancelAnimationFrame(this.frameRequest);
+    cancelAnimationFrame(this.frameRequest)
+    // clean up onLoadStateChangeSubscription
+    this.onLoadStateChangeSubscription.remove();
   }
 
   _play() {
@@ -69,6 +74,7 @@ class PlayControls extends React.Component {
         <TouchableHighlight onPress={ () => this._play()} activeOpacity={0.80} underlayColor={'transparent'}>
           <Image source={{uri: 'btn-play'}} style={{width: 45, height: 45, opacity:playButtonOpacity}}/>
         </TouchableHighlight>
+        <Text> {this.state.isLoading && "Loading"}</Text>
       </View>
     )
   }
