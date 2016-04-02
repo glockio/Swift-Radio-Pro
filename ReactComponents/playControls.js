@@ -1,4 +1,5 @@
 import React from 'react-native'
+import TimerMixin from 'react-timer-mixin'
 
 const {
     StyleSheet,
@@ -21,15 +22,21 @@ class PlayControls extends React.Component {
       isPlaying: true
     }
   }
+
+
   componentDidMount() {
     // We want to render right away so make sure all code is nonblocking
     const props = this.props;
-    // A bit confused. Bridge should be async but making this call can delay rendering
-    // Need to debug more
-    setTimeout( () => MediaPlayer.setStation(props), 0)
-    // InteractionManager.runAfterInteractions( () => {
-    //   // Use this if you want to update placeholder content
-    // })
+
+    this.frameRequest = requestAnimationFrame( () => {
+      MediaPlayer.setStation(props)
+    })
+
+
+  }
+
+  componentWillUnmount() {
+    cancelAnimationFrame(this.frameRequest);
   }
 
   _play() {

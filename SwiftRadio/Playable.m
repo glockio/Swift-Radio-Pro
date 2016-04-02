@@ -21,17 +21,28 @@ RCT_EXPORT_MODULE();
 
 RCT_EXPORT_METHOD(setStation:(NSDictionary *)stationData)
 {
-
-    if(!_moviePlayer) {
-        _moviePlayer =  [[MPMoviePlayerController alloc] init];
-        _moviePlayer.view.frame = CGRectMake(0, 0, 0, 0);
-        [_moviePlayer.view sizeToFit];
-        _moviePlayer.shouldAutoplay = true;
-        _moviePlayer.fullscreen = false;
-        _moviePlayer.controlStyle = MPMovieControlStyleNone;
-    }
     
-    [self changeStation:stationData[@"stationStreamURL"]];
+//    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+//
+        if(!_moviePlayer) {
+            _moviePlayer =  [[MPMoviePlayerController alloc] init];
+            _moviePlayer.view.frame = CGRectMake(0, 0, 0, 0);
+            [_moviePlayer.view sizeToFit];
+            _moviePlayer.shouldAutoplay = true;
+            _moviePlayer.fullscreen = false;
+            _moviePlayer.controlStyle = MPMovieControlStyleNone;
+        }
+        
+//        [self changeStation:stationData[@"stationStreamURL"]];
+        if (currentStationURL == stationData[@"stationStreamURL"]) {
+            NSLog(@"Same Station...");
+        } else {
+            _moviePlayer.contentURL = [NSURL URLWithString:stationData[@"stationStreamURL"]];
+            _moviePlayer.movieSourceType = MPMovieSourceTypeStreaming;
+            [_moviePlayer prepareToPlay];
+        }
+        
+//    });
     
 }
 

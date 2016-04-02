@@ -1,17 +1,17 @@
 PODS:
   - CodePush (1.8.0-beta):
     - React
-  - React (0.23.0-rc1):
-    - React/Core (= 0.23.0-rc1)
-  - React/Core (0.23.0-rc1)
-  - React/RCTImage (0.23.0-rc1):
+  - React (0.22.2):
+    - React/Core (= 0.22.2)
+  - React/Core (0.22.2)
+  - React/RCTImage (0.22.2):
     - React/Core
     - React/RCTNetwork
-  - React/RCTNetwork (0.23.0-rc1):
+  - React/RCTNetwork (0.22.2):
     - React/Core
-  - React/RCTText (0.23.0-rc1):
+  - React/RCTText (0.22.2):
     - React/Core
-  - React/RCTWebSocket (0.23.0-rc1):
+  - React/RCTWebSocket (0.22.2):
     - React/Core
   - RNVectorIcons (1.1.1):
     - React
@@ -27,15 +27,15 @@ DEPENDENCIES:
 
 EXTERNAL SOURCES:
   CodePush:
-    :path: "./ReactComponents/node_modules/react-native-code-push"
+    :path: ./ReactComponents/node_modules/react-native-code-push
   React:
-    :path: "./ReactComponents/node_modules/react-native"
+    :path: ./ReactComponents/node_modules/react-native
   RNVectorIcons:
-    :path: "./ReactComponents/node_modules/react-native-vector-icons"
+    :path: ./ReactComponents/node_modules/react-native-vector-icons
 
 SPEC CHECKSUMS:
   CodePush: a21a35be71523efe49699fbebcbd40c137195d6a
-  React: aaf7230899499b3455799a953f71cc1895b4209b
+  React: be2dc9f9a325f0b4db1fcd3a0cea29c0e00af9b7
   RNVectorIcons: 18f2a1a02be087cf10d079041b9b13c082a4d797
 
 COCOAPODS: 0.39.0
