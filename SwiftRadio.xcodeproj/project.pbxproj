@@ -11,6 +11,8 @@
 		3740BE321C9A8513002407D4 /* CalendarManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3740BE311C9A8513002407D4 /* CalendarManager.swift */; };
 		3761247F1C9F1BA8008B2B28 /* RCTAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3761247E1C9F1BA8008B2B28 /* RCTAboutViewController.m */; };
 		376124831C9F53CD008B2B28 /* Routebale.m in Sources */ = {isa = PBXBuildFile; fileRef = 376124821C9F53CD008B2B28 /* Routebale.m */; };
+		37953C1F1CA67AA40015AEDA /* RNPlayControlsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 37953C1E1CA67AA40015AEDA /* RNPlayControlsView.m */; };
+		37953C231CA688070015AEDA /* Playable.m in Sources */ = {isa = PBXBuildFile; fileRef = 37953C221CA688070015AEDA /* Playable.m */; };
 		37CF7EC91C7ED8A200C0653E /* ReactNativeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37CF7EC81C7ED8A200C0653E /* ReactNativeView.swift */; };
 		37CF7ED01C7EDED200C0653E /* ReactNativeAboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37CF7ECF1C7EDED200C0653E /* ReactNativeAboutViewController.swift */; };
 		37CF7ED31C7EEF1300C0653E /* main.jsbundle in Resources */ = {isa = PBXBuildFile; fileRef = 37CF7ED21C7EEF1300C0653E /* main.jsbundle */; };
@@ -75,6 +77,10 @@
 		376124801C9F1BBB008B2B28 /* RCTAboutViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RCTAboutViewController.h; sourceTree = "<group>"; };
 		376124811C9F53BF008B2B28 /* Routeable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Routeable.h; sourceTree = "<group>"; };
 		376124821C9F53CD008B2B28 /* Routebale.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Routebale.m; sourceTree = "<group>"; };
+		37953C1E1CA67AA40015AEDA /* RNPlayControlsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNPlayControlsView.m; sourceTree = "<group>"; };
+		37953C201CA67AB70015AEDA /* RNPlayControlsView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RNPlayControlsView.h; sourceTree = "<group>"; };
+		37953C211CA687F50015AEDA /* Playable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Playable.h; sourceTree = "<group>"; };
+		37953C221CA688070015AEDA /* Playable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Playable.m; sourceTree = "<group>"; };
 		37CF7EC81C7ED8A200C0653E /* ReactNativeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReactNativeView.swift; sourceTree = "<group>"; };
 		37CF7ECA1C7ED9DE00C0653E /* SwiftRadio-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SwiftRadio-Bridging-Header.h"; sourceTree = "<group>"; };
 		37CF7ECF1C7EDED200C0653E /* ReactNativeAboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReactNativeAboutViewController.swift; sourceTree = "<group>"; };
@@ -261,6 +267,10 @@
 				376124801C9F1BBB008B2B28 /* RCTAboutViewController.h */,
 				376124811C9F53BF008B2B28 /* Routeable.h */,
 				376124821C9F53CD008B2B28 /* Routebale.m */,
+				37953C1E1CA67AA40015AEDA /* RNPlayControlsView.m */,
+				37953C201CA67AB70015AEDA /* RNPlayControlsView.h */,
+				37953C211CA687F50015AEDA /* Playable.h */,
+				37953C221CA688070015AEDA /* Playable.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -468,6 +478,7 @@
 				3740BE301C9A835B002407D4 /* CalendarManagerBridge.m in Sources */,
 				37CF7ED01C7EDED200C0653E /* ReactNativeAboutViewController.swift in Sources */,
 				94DB0AA01B98B762005ED993 /* Misc.swift in Sources */,
+				37953C231CA688070015AEDA /* Playable.m in Sources */,
 				3740BE321C9A8513002407D4 /* CalendarManager.swift in Sources */,
 				94DB0AA31B98B762005ED993 /* SpringAnimation.swift in Sources */,
 				94DB0A961B98B762005ED993 /* DesignableLabel.swift in Sources */,
@@ -490,6 +501,7 @@
 				94E9761C1B1A8F3200F52B1E /* UIImage+DropShadow.swift in Sources */,
 				94452E551AD7086800BFE7A5 /* AboutViewController.swift in Sources */,
 				94DB0AAA1B98B762005ED993 /* TransitionManager.swift in Sources */,
+				37953C1F1CA67AA40015AEDA /* RNPlayControlsView.m in Sources */,
 				94DB0A9B1B98B762005ED993 /* ImageLoader.swift in Sources */,
 				94D260981B45E8B800DE671C /* Track.swift in Sources */,
 				94DB0A951B98B762005ED993 /* DesignableImageView.swift in Sources */,

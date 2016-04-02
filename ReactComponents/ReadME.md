@@ -82,3 +82,18 @@ The Bridge: Flexiable
 
 
 -> Because of this This guy streamed his application via websockets. JS hosted with node accepted messages with websockets and responded with native ui calls.
+
+
+- Use Moudles for JS -> Native commuincation
+- Use Events for Native -> JS  commuincation
+
+
+// Obj C
+
+// creates getters and setters. Bridge is defined as a property in RCTViewManager.h
+@synthesize bridge = _bridge;
+
+
+SPY:  MESSAGE QUEUE
+
+-> Slow rendering of my initial component. I think its because in componentWillMount I am making a call but all calls are batched.
