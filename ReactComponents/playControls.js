@@ -22,23 +22,27 @@ class PlayControls extends React.Component {
     super()
     this.state = {
       isPlaying: true,
-      isLoading: true
+      isLoading: true,
     }
   }
 
   componentDidMount() {
-    const props = this.props;
+    const {props} = this
 
+    // Register native Event Listner
+    this.onLoadStateChangeSubscription = DeviceEventEmitter.once("Playable.onLoadStateChange", (nativeEvent) => {
+      this.setState({isLoading: false})
+    })
+    // Setting station blocks main thread
+    // Requesting frame ensures we flush the q once before we run
+    // MediaPlayer.setStation
     this.frameRequest = requestAnimationFrame( () => {
       MediaPlayer.setStation(props)
-    })
-
-    this.onLoadStateChangeSubscription = DeviceEventEmitter.once("Playable.onLoadStateChange", () => {
-      this.setState({isLoading: false})
     })
   }
 
   componentWillUnmount() {
+    // clean up frameRequest
     cancelAnimationFrame(this.frameRequest)
     // clean up onLoadStateChangeSubscription
     this.onLoadStateChangeSubscription.remove();

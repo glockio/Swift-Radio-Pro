@@ -41,42 +41,38 @@ RCT_EXPORT_METHOD(setStation:(NSDictionary *)stationData)
             [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(moviePlayerLoadStateChanged:) name:MPMoviePlayerLoadStateDidChangeNotification object:nil];
             
         }
-        
-        [self changeStation:stationData[@"stationStreamURL"]];
     
+        if ([stationData[@"stationStreamURL"] caseInsensitiveCompare:currentStationURL] == NSOrderedSame) {
+            // The staiton is alreay ready to play in this case so disptach dispatchLoadStateChangeEvent so RN component updates loading state.
+            [self dispatchLoadStateChangeEvent];
+        } else {
+            currentStationURL = stationData[@"stationStreamURL"];
+            _moviePlayer.contentURL = [NSURL URLWithString:stationData[@"stationStreamURL"]];
+            _moviePlayer.movieSourceType = MPMovieSourceTypeStreaming;
+            [_moviePlayer prepareToPlay];
+        }
     
 }
 
--(void) changeStation: (NSString*)stationURL {
-    
-    
-    if (currentStationURL == stationURL) {
-        NSLog(@"Same Station...");
-    } else {
-        _moviePlayer.contentURL = [NSURL URLWithString:stationURL];
-        _moviePlayer.movieSourceType = MPMovieSourceTypeStreaming;
-        [_moviePlayer prepareToPlay];
-    
-    }
-    
-    
 
-}
 
 - (void) moviePlayerLoadStateChanged:(NSNotification*)notification {
+    [self dispatchLoadStateChangeEvent];
+}
+
+-(void) dispatchLoadStateChangeEvent {
     // We need a reference to the AppDelegate since that is where we stored our `RCTBridge`.
+    
     AppDelegate *delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     RCTBridge *bridge = delegate.reactNativeBridge;
-    
-    NSDictionary *event = @{@"test": @"Test"};
+
+    NSDictionary *event = @{@"loadState": [NSNumber numberWithInt:_moviePlayer.loadState]};
     
     // Event names share global scope. Namespace with module name to avoid nameing collisions.
     [bridge.eventDispatcher sendDeviceEventWithName:@"Playable.onLoadStateChange"
                                                body:event ];
 
-    
 }
-
 
 RCT_EXPORT_METHOD(play)
 {

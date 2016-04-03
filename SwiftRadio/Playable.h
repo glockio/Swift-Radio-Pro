@@ -16,6 +16,5 @@
 
 @interface Playable : NSObject <RCTBridgeModule>
 
--(void) changeStation: (NSString*)stationURL;
 
 @end
