@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="kdl-ej-Zz5">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="kdl-ej-Zz5">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -29,7 +29,7 @@
                                         <rect key="frame" x="0.0" y="22" width="320" height="88"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hMr-La-1Ga" id="NhW-Qy-GCO">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="87"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="87.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="stationImage" translatesAutoresizingMaskIntoConstraints="NO" id="GQm-Mf-6pw">
@@ -286,46 +286,6 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JCK-L1-2Sc" userLabel="PlayerControls View">
-                                <rect key="frame" x="91" y="298" width="138" height="70"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D3H-co-r2v" userLabel="PlayButton">
-                                        <rect key="frame" x="73" y="20" width="45" height="45"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="45" id="2BM-7x-5Tq"/>
-                                            <constraint firstAttribute="height" constant="45" id="z57-mJ-vRD"/>
-                                        </constraints>
-                                        <state key="normal" image="btn-play">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="playPressed" destination="vXZ-lx-hvc" eventType="touchUpInside" id="0gS-uM-VCB"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k7t-tN-2wp" userLabel="PauseButton">
-                                        <rect key="frame" x="20" y="20" width="45" height="45"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="45" id="0QP-4Y-L0R"/>
-                                            <constraint firstAttribute="height" constant="45" id="9ls-Nq-FcF"/>
-                                        </constraints>
-                                        <state key="normal" image="btn-pause">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="pausePressed" destination="vXZ-lx-hvc" eventType="touchUpInside" id="wrn-Yt-4PQ"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstItem="D3H-co-r2v" firstAttribute="top" secondItem="JCK-L1-2Sc" secondAttribute="top" constant="20" id="9W0-st-1Xl"/>
-                                    <constraint firstItem="D3H-co-r2v" firstAttribute="leading" secondItem="k7t-tN-2wp" secondAttribute="trailing" constant="8" id="CCi-Nw-GJ7"/>
-                                    <constraint firstItem="k7t-tN-2wp" firstAttribute="top" secondItem="JCK-L1-2Sc" secondAttribute="top" constant="20" id="E2f-2h-Xdf"/>
-                                    <constraint firstAttribute="width" constant="138" id="Iau-Ec-PKR"/>
-                                    <constraint firstItem="k7t-tN-2wp" firstAttribute="leading" secondItem="JCK-L1-2Sc" secondAttribute="leading" constant="20" id="R9A-GB-GuH"/>
-                                    <constraint firstAttribute="height" constant="70" id="ZpW-Ox-31t"/>
-                                    <constraint firstAttribute="trailing" secondItem="D3H-co-r2v" secondAttribute="trailing" constant="20" id="nHo-zR-D9H"/>
-                                </constraints>
-                            </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GIj-4c-kRh" userLabel="Company-Button">
                                 <rect key="frame" x="12" y="524" width="90" height="36"/>
                                 <constraints>
@@ -414,13 +374,16 @@
                                     <constraint firstItem="Ygz-Co-31f" firstAttribute="top" secondItem="dtX-QN-LoN" secondAttribute="top" constant="22" id="tyF-Wg-6BH"/>
                                 </constraints>
                             </view>
-                            <view opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="n15-bI-UW9" userLabel="RN PlayControls View" customClass="RNPlayControlsView">
-                                <rect key="frame" x="79" y="165" width="138" height="70"/>
+                            <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n15-bI-UW9" userLabel="RN PlayControls View" customClass="RNPlayControlsView">
+                                <rect key="frame" x="91" y="304" width="138" height="70"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="70" id="MoZ-Qn-7Fl"/>
+                                    <constraint firstAttribute="width" constant="138" id="rdA-Es-aGY"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="centerX" secondItem="JCK-L1-2Sc" secondAttribute="centerX" id="1Wd-Ce-ie0"/>
                             <constraint firstItem="obn-8m-awZ" firstAttribute="leading" secondItem="RA9-OX-Xr1" secondAttribute="leading" id="4LO-kb-G6v"/>
                             <constraint firstItem="KC8-ZG-rx5" firstAttribute="trailing" secondItem="v3l-q6-g0h" secondAttribute="trailing" id="5SZ-je-i3P"/>
                             <constraint firstItem="RA9-OX-Xr1" firstAttribute="top" secondItem="obn-8m-awZ" secondAttribute="bottom" constant="-32" id="5fc-ws-2hz"/>
@@ -433,10 +396,10 @@
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="Yfv-H0-2Po" secondAttribute="bottom" constant="12" id="DQU-jH-gbm"/>
                             <constraint firstItem="v3l-q6-g0h" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="G7B-ZJ-vHt"/>
                             <constraint firstItem="GIj-4c-kRh" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="12" id="Hts-LO-0mm"/>
-                            <constraint firstItem="JCK-L1-2Sc" firstAttribute="top" secondItem="obn-8m-awZ" secondAttribute="bottom" constant="17" id="OBm-8c-dti"/>
-                            <constraint firstItem="dtX-QN-LoN" firstAttribute="top" secondItem="JCK-L1-2Sc" secondAttribute="bottom" constant="10" id="TD6-Jv-Vkj"/>
+                            <constraint firstItem="dtX-QN-LoN" firstAttribute="top" secondItem="n15-bI-UW9" secondAttribute="bottom" constant="4" id="aP3-qG-QfD"/>
                             <constraint firstItem="v3l-q6-g0h" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" id="fmg-j6-zIe"/>
                             <constraint firstItem="uXf-Wr-UiK" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" id="hPm-1B-yKf"/>
+                            <constraint firstItem="n15-bI-UW9" firstAttribute="top" secondItem="obn-8m-awZ" secondAttribute="bottom" constant="23" id="kMk-6y-j2y"/>
                             <constraint firstItem="KC8-ZG-rx5" firstAttribute="leading" secondItem="v3l-q6-g0h" secondAttribute="leading" id="kPF-QT-yN6"/>
                             <constraint firstAttribute="trailing" secondItem="dtX-QN-LoN" secondAttribute="trailing" id="kQd-xy-Nl1"/>
                             <constraint firstAttribute="trailing" secondItem="obn-8m-awZ" secondAttribute="trailing" constant="70" id="mbe-x3-NBX"/>
@@ -445,6 +408,7 @@
                             <constraint firstItem="uXf-Wr-UiK" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="ukJ-i6-3WQ"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="uXf-Wr-UiK" secondAttribute="bottom" id="vqi-Me-nfe"/>
                             <constraint firstAttribute="trailing" secondItem="uXf-Wr-UiK" secondAttribute="trailing" id="wlz-dV-IhI"/>
+                            <constraint firstItem="n15-bI-UW9" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="xhy-WI-nXN"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="SubPop Records" id="M1Z-0o-hNV" userLabel="Station Title"/>
@@ -453,8 +417,6 @@
                         <outlet property="albumHeightConstraint" destination="hCD-tK-vVP" id="VlU-n5-VPe"/>
                         <outlet property="albumImageView" destination="obn-8m-awZ" id="13r-WO-VAs"/>
                         <outlet property="artistLabel" destination="v3l-q6-g0h" id="s0B-6Y-MWu"/>
-                        <outlet property="pauseButton" destination="k7t-tN-2wp" id="hY6-Tz-wKV"/>
-                        <outlet property="playButton" destination="D3H-co-r2v" id="7vv-MG-kTG"/>
                         <outlet property="reactNativeControlsView" destination="n15-bI-UW9" id="cmW-tO-aal"/>
                         <outlet property="songLabel" destination="KC8-ZG-rx5" id="tNh-3K-qWW"/>
                         <outlet property="stationDescLabel" destination="RA9-OX-Xr1" id="uAM-NB-RRM"/>
@@ -826,8 +788,6 @@
         <image name="NowPlayingBars" width="20" height="19"/>
         <image name="background" width="320" height="568"/>
         <image name="btn-close" width="23" height="23"/>
-        <image name="btn-pause" width="44" height="44"/>
-        <image name="btn-play" width="44" height="44"/>
         <image name="icon-hamburger" width="22" height="16"/>
         <image name="logo" width="180" height="71"/>
         <image name="stationImage" width="120" height="75"/>

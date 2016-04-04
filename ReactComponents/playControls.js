@@ -78,7 +78,6 @@ class PlayControls extends React.Component {
         <TouchableHighlight onPress={ () => this._play()} activeOpacity={0.80} underlayColor={'transparent'}>
           <Image source={{uri: 'btn-play'}} style={{width: 45, height: 45, opacity:playButtonOpacity}}/>
         </TouchableHighlight>
-        <Text> {this.state.isLoading && "Loading"}</Text>
       </View>
     )
   }
