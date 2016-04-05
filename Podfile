@@ -17,5 +17,6 @@ target 'SwiftRadio' do
 
   pod 'RNVectorIcons', :path => './ReactComponents/node_modules/react-native-vector-icons'
 
+  pod 'StreamingKit', '~> 0.1'
 end
 

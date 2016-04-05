@@ -27,26 +27,9 @@ class PlayControls extends React.Component {
   }
 
   componentDidMount() {
-    const {props} = this
-
-    // // Register native Event Listner
-    // this.onLoadStateChangeSubscription = DeviceEventEmitter.once("Playable.onLoadStateChange", (nativeEvent) => {
-    //   this.setState({isLoading: false})
-    // })
-    // // Setting station blocks main thread
-    // // Requesting frame ensures we flush the q once before we run
-    // // MediaPlayer.setStation
-    // this.frameRequest = requestAnimationFrame( () => {
-    //   MediaPlayer.setStation(props)
-    // })
+    MediaPlayer.setStation(this.props)
   }
 
-  componentWillUnmount() {
-    // clean up frameRequest
-    cancelAnimationFrame(this.frameRequest)
-    // clean up onLoadStateChangeSubscription
-    this.onLoadStateChangeSubscription.remove();
-  }
 
   _play() {
     MediaPlayer.play()
@@ -72,15 +55,16 @@ class PlayControls extends React.Component {
 
   renderPlayButton(opacity) {
     return(
-      <TouchableHighlight onPress={ () => this._play()} activeOpacity={0.80} underlayColor={'transparent'} style={{opacity: opacity}}>
+      <TouchableHighlight onPress={ () => this._play()} activeOpacity={0.8} underlayColor={'transparent'} style={{opacity: opacity}}>
         <Image source={{uri: 'btn-play'}} style={{width: 45, height: 45, marginRight: 10}}/>
       </TouchableHighlight>
     )
   }
 
   render(){
-    const pauseButton = this.state.isPlaying ? this.renderPauseButton(1.0) : this.renderPauseButton(0.5)
-    const playButton  = this.state.isPlaying ? this.renderPlayButton(0.5) : this.renderPlayButton(1.0)
+    const pauseButton = this.state.isPlaying ? this.renderPauseButton(0.5) : this.renderPauseButton(1.0)
+    const playButton  = this.state.isPlaying ? this.renderPlayButton(1.0) : this.renderPlayButton(0.5)
+
     return(
       <View style={{flex:1, alignItems:'center', justifyContent:'center', flexDirection:'row',overflow:'hidden'}}>
           {pauseButton}
