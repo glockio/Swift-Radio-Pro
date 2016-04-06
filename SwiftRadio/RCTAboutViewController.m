@@ -41,7 +41,7 @@
     RCTBridge *bridge = delegate.reactNativeBridge;
     
     // Here we create a `RCTRootView` that initializes with the `RCTBridge` that we already pre-loaded.
-    RCTRootView *rootView = [[RCTRootView alloc] initWithBridge:bridge  moduleName:@"SwiftRadio" initialProperties:nil];
+    RCTRootView *rootView = [[RCTRootView alloc] initWithBridge:bridge  moduleName:@"FeaturesPage" initialProperties:nil];
     
     // Here we are getting access to the already instanciated `Routeable` NativeModule and then
     // setting this controller as it's `Delegate`. This will enable the Coordinator to execute methods here, without
@@ -78,9 +78,11 @@
     
 }
 
--(void)popRoute {
-     [self.navigationController popToRootViewControllerAnimated:NO];
+
+-(void) dismissModal {
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
+
 
 // Hide Nav Bar
 -(void)viewWillAppear:(BOOL)animated{

@@ -296,7 +296,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="cRY-k3-ZoM" kind="push" id="kYD-Ok-zS5"/>
+                                    <segue destination="cRY-k3-ZoM" kind="modal" modalTransitionStyle="flipHorizontal" id="kYD-Ok-zS5"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yfv-H0-2Po" userLabel="InformationButton">
