@@ -20,20 +20,28 @@
 
 RCT_EXPORT_MODULE();
 
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        if (!_audioPlayer) {
+            // Init _audioPlayer
+            _audioPlayer = [[STKAudioPlayer alloc] init];
+        }
+    }
+    return self;
+}
+
 RCT_EXPORT_METHOD(setStation:(NSDictionary *)stationData)
 {
     
-    if (!_audioPlayer) {
-        _audioPlayer = [[STKAudioPlayer alloc] init];
-    }
-    
-    // Check we have a new station to play
     if ([stationData[@"stationStreamURL"] caseInsensitiveCompare:currentStationURL] == NSOrderedSame) {
         // Make sure station is playing
         [_audioPlayer resume];
     } else {
         currentStationURL = stationData[@"stationStreamURL"];
         [_audioPlayer play:stationData[@"stationStreamURL"]];
+        
     }
 }
 
