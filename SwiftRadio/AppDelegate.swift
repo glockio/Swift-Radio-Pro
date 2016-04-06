@@ -31,10 +31,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         // Set location of the main js bundle
 
-//        var jsCodeLocation = NSURL(string: "http://localhost:8081/index.ios.bundle?platform=ios&dev=true")
+        var jsCodeLocation = NSURL(string: "http://localhost:8081/index.ios.bundle?platform=ios&dev=true")
         
-        var jsCodeLocation = NSURL(string: "http://172.18.139.205:8081/index.ios.bundle?platform=ios&dev=true")
-
         if REACT_DEV_MODE == false {
 //            jsCodeLocation = CodePush.bundleURL()
              jsCodeLocation = NSBundle.mainBundle().URLForResource("main", withExtension: "jsbundle")
