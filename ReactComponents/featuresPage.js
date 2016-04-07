@@ -1,6 +1,7 @@
-import React from 'react-native';
-import codePush from "react-native-code-push";
-import Icon from "react-native-vector-icons/Ionicons";
+import React from 'react-native'
+import codePush from "react-native-code-push"
+import Txt from './appText'
+import Icon from "react-native-vector-icons/Ionicons"
 
 const {
     AppRegistry,
@@ -13,12 +14,12 @@ const {
     NativeModules,
     Navigator,
     InteractionManager
-} = React;
+} = React
 
-const CalendarManager = NativeModules.CalendarManager
 const Routeable = NativeModules.Routeable
 
 class FeaturesPage extends React.Component {
+
     componentDidMount(){
         // InteractionManager.runAfterInteractions( () => {
         //     if(!this.props.DEV_MODE) {
@@ -27,8 +28,8 @@ class FeaturesPage extends React.Component {
         // })
     }
 
-    _closeModal() {
-        Routeable.closeModal()
+    _handelDismiss() {
+        this.props.dismissHandler()
     }
 
     render() {
@@ -36,13 +37,12 @@ class FeaturesPage extends React.Component {
             <View style={styles.container}>
                 <View style={[styles.container, styles.body]}>
                     <View style={{flex:0,flexDirection:'row'}}>
-
-                        <View style={{flex: 4}}>
+                        <View style={{flex: 5}}>
                             <Image source={{uri: 'logo'}} style={{width: 126, height: 49}}/>
                         </View>
-                        <View style={{flex: 8}}>
+                        <View style={{flex: 7, justifyContent: 'center'}}>
                             <Txt style={[styles.text, {fontWeight: '400'}]}>Xcode 7/Swift 2</Txt>
-                            <Txt style={styles.text}> Radio App</Txt>
+                            <Txt style={styles.text}>Radio App</Txt>
                         </View>
                     </View>
 
@@ -59,31 +59,16 @@ class FeaturesPage extends React.Component {
                 </View>
 
                 <View style={styles.footer}>
-                    <TouchableOpacity onPress={ () => this._closeModal() }>
+                    <TouchableOpacity onPress={ () => this._handelDismiss() }>
                         <View style={styles.button}>
                             <Txt style={{fontWeight: '500'}}>Okay</Txt>
                         </View>
                     </TouchableOpacity>
                 </View>
-
             </View>
-        );
+        )
     }
 }
-
-class Txt extends React.Component {
-  render() {
-    return <Text style={[textStyles.text, this.props.style]}> {this.props.children} </Text>
-  }
-}
-
-const textStyles = StyleSheet.create({
-    text: {
-        fontSize: 16,
-        fontFamily: 'Avenir Next',
-        color: 'white',
-    }
-});
 
 const styles = StyleSheet.create({
     container: {
@@ -94,17 +79,15 @@ const styles = StyleSheet.create({
     },
     featureList: {
         marginTop: 15,
-        marginLeft: 5
+        marginLeft: 5,
     },
     body: {
-        marginTop: 10,
-        padding: 10
+        marginTop: 40,
+        padding: 10,
     },
-
     footer: {
-        padding: 10
+        padding: 10,
     },
-
     button: {
         backgroundColor: 'rgb(38,38,40)',
         flex: 1,
@@ -119,7 +102,7 @@ const styles = StyleSheet.create({
     navBarText: {
         fontSize: 20,
         color: 'white',
-    }
-});
+    },
+})
 
 export default FeaturesPage

@@ -1,7 +1,6 @@
 // import React from 'react-native';
 // import codePush from "react-native-code-push";
 // import Icon from "react-native-vector-icons/Ionicons";
-// import PlayControls from './playControls'
 
 // const {
 //     AppRegistry,
@@ -16,8 +15,6 @@
 //     InteractionManager
 // } = React;
 
-// // import { NativeModules } from 'react-native';
-// const CalendarManager = NativeModules.CalendarManager
 // const Routeable = NativeModules.Routeable
 
 // class Screen extends React.Component {

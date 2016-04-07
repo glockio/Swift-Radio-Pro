@@ -4,3 +4,4 @@
 #import "RCTRootView.h"
 #import "CodePush.h"
 #import "RNPlayControlsView.h"
+#import "STKAudioPlayer.h"

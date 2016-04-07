@@ -32,6 +32,7 @@ class StationsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
         // Register 'Nothing Found' cell xib
         let cellNib = UINib(nibName: "NothingFoundCell", bundle: nil)
         tableView.registerNib(cellNib, forCellReuseIdentifier: "NothingFound")
@@ -93,6 +94,22 @@ class StationsViewController: UIViewController {
             let searchTextField = searchController.searchBar.valueForKey("_searchField") as! UITextField
             searchTextField.keyboardAppearance = UIKeyboardAppearance.Dark
         }
+        
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        let reactNativeBridge = appDelegate.reactNativeBridge
+//        //
+//        
+        
+        let tview = RCTRootView(bridge: reactNativeBridge, moduleName: "FeaturesPage", initialProperties:nil)
+        
+        tview.hidden = true
+        
+        self.view.addSubview(tview)
+        
+        
+
+        
+
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -226,6 +243,7 @@ class StationsViewController: UIViewController {
                 }
                 nowPlayingVC.currentStation = currentStation
                 nowPlayingVC.newStation = true
+                
             
             } else {
                 // User clicked on a now playing button

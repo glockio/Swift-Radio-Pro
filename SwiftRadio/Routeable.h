@@ -30,5 +30,5 @@
 @optional
 
 - (void)dismissModal;
-
+- (void)popRoute;
 @end

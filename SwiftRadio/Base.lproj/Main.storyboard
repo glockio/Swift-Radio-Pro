@@ -742,7 +742,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="hOy-Ea-o3Z"/>
+                    <navigationItem key="navigationItem" id="hOy-Ea-o3Z">
+                        <nil key="title"/>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ffs-fg-ucN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

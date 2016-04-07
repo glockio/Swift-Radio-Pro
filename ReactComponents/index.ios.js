@@ -1,12 +1,14 @@
-import React from 'react-native';
-import codePush from "react-native-code-push";
-import Icon from "react-native-vector-icons/Ionicons";
-import PlayControls from './playControls'
-import FeaturesPage from './featuresPage'
+import React from 'react-native'
+import codePush from "react-native-code-push"
+import Icon from "react-native-vector-icons/Ionicons"
+import PlayControls from './playControls' // native module example
+import ModalExample from './modalExample'  // modal example
+import PushRouteExample from './pushRouteExample' // push route example + subrouting
 
 const {
     AppRegistry,
-} = React;
+	NativeModules,
+} = React
 
-AppRegistry.registerComponent('FeaturesPage', () => FeaturesPage);
-AppRegistry.registerComponent('PlayControls', () => PlayControls);
+AppRegistry.registerComponent('FeaturesPage', () => ModalExample)
+AppRegistry.registerComponent('PlayControls', () => PlayControls)

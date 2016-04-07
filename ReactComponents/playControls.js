@@ -11,8 +11,7 @@ const {
     NativeModules,
     InteractionManager,
     DeviceEventEmitter,
-
-} = React;
+} = React
 
 const MediaPlayer = NativeModules.Playable
 
@@ -29,7 +28,6 @@ class PlayControls extends React.Component {
   componentDidMount() {
     MediaPlayer.setStation(this.props)
   }
-
 
   _play() {
     MediaPlayer.play()

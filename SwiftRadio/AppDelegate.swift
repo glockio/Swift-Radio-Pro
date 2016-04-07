@@ -16,7 +16,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var REACT_DEV_MODE: Bool?
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        
+        // Init ReactNativeRootView
+        REACT_DEV_MODE = true
+        
+        // Set location of the main js bundle
+        var jsCodeLocation = NSURL(string: "http://localhost:8081/index.ios.bundle?platform=ios&dev=true")
+        
+        if REACT_DEV_MODE == false {
+            //            jsCodeLocation = CodePush.bundleURL()
+            jsCodeLocation = NSBundle.mainBundle().URLForResource("main", withExtension: "jsbundle")
+            
+        }
+        
+        reactNativeBridge = RCTBridge(
+            bundleURL: jsCodeLocation,
+            moduleProvider: nil,
+            launchOptions:launchOptions
+        )
 
+    
+        
         // MPNowPlayingInfoCenter
         UIApplication.sharedApplication().beginReceivingRemoteControlEvents()
 
@@ -26,26 +46,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Because we will hide Nav bar
         UIApplication.sharedApplication().statusBarStyle = .LightContent
 
-        // Init ReactNativeRootView
-        REACT_DEV_MODE = true
-
-        // Set location of the main js bundle
-
-        var jsCodeLocation = NSURL(string: "http://localhost:8081/index.ios.bundle?platform=ios&dev=true")
         
-        if REACT_DEV_MODE == false {
-//            jsCodeLocation = CodePush.bundleURL()
-             jsCodeLocation = NSBundle.mainBundle().URLForResource("main", withExtension: "jsbundle")
-           
-        }
-
-        reactNativeBridge = RCTBridge(
-                bundleURL: jsCodeLocation,
-                moduleProvider: nil,
-                launchOptions:launchOptions
-        )
-        
-        // Prerender 
 
         return true
     }
