@@ -9,7 +9,7 @@
 // Playable.m
 #import "Playable.h"
 #import "RCTEventDispatcher.h"
-#import "SwiftRadio-Swift.h"
+#import "SwiftRadioB-Swift.h"
 #import "STKAudioPlayer.h"
 
 @implementation Playable {

@@ -640,7 +640,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.gregl.SwiftRadio;
-				PRODUCT_NAME = SwiftRadio;
+				PRODUCT_NAME = SwiftRadioB;
 				PROVISIONING_PROFILE = "";
 				SWIFT_INSTALL_OBJC_HEADER = NO;
 				SWIFT_OBJC_BRIDGING_HEADER = "SwiftRadio/SwiftRadio-Bridging-Header.h";
@@ -667,7 +667,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.gregl.SwiftRadio;
-				PRODUCT_NAME = SwiftRadio;
+				PRODUCT_NAME = SwiftRadioB;
 				PROVISIONING_PROFILE = "";
 				SWIFT_INSTALL_OBJC_HEADER = NO;
 				SWIFT_OBJC_BRIDGING_HEADER = "SwiftRadio/SwiftRadio-Bridging-Header.h";

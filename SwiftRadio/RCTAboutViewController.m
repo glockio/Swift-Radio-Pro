@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "SwiftRadio-Swift.h"
+#import "SwiftRadioB-Swift.h"
 
 //
 //  RCTAboutViewController.m

@@ -12,7 +12,7 @@
 //
 //  RNPlayControls.m
 //
-#import "SwiftRadio-Swift.h"
+#import "SwiftRadioB-Swift.h"
 #import "RNPlayControlsView.h"
 #import "RCTRootView.h"
 
