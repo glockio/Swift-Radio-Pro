@@ -78,7 +78,6 @@ class NowPlayingViewController: UIViewController {
 
         // Set View Title
         self.title = currentStation.stationName
-        
         track = Track()
         resetAlbumArtwork()
     }

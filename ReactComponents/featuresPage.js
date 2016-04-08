@@ -1,7 +1,7 @@
 import React from 'react-native'
-import codePush from "react-native-code-push"
 import Txt from './appText'
 import Icon from "react-native-vector-icons/Ionicons"
+import codePush from "react-native-code-push"
 
 const {
     AppRegistry,
@@ -19,14 +19,6 @@ const {
 const Routeable = NativeModules.Routeable
 
 class FeaturesPage extends React.Component {
-
-    componentDidMount(){
-        // InteractionManager.runAfterInteractions( () => {
-        //     if(!this.props.DEV_MODE) {
-        //       codePush.sync()
-        //     }
-        // })
-    }
 
     _handelDismiss() {
         this.props.dismissHandler()
@@ -73,6 +65,7 @@ class FeaturesPage extends React.Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
+        // backgroundColor: 'green',
     },
     text: {
         fontSize: 18,
@@ -84,6 +77,7 @@ const styles = StyleSheet.create({
     body: {
         marginTop: 40,
         padding: 10,
+        // backgroundColor: 'blue',
     },
     footer: {
         padding: 10,

@@ -95,20 +95,7 @@ class StationsViewController: UIViewController {
             searchTextField.keyboardAppearance = UIKeyboardAppearance.Dark
         }
         
-        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-        let reactNativeBridge = appDelegate.reactNativeBridge
-//        //
-//        
-        
-        let tview = RCTRootView(bridge: reactNativeBridge, moduleName: "FeaturesPage", initialProperties:nil)
-        
-        tview.hidden = true
-        
-        self.view.addSubview(tview)
-        
-        
 
-        
 
     }
     

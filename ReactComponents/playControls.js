@@ -1,5 +1,6 @@
 import React from 'react-native'
 import TimerMixin from 'react-timer-mixin'
+import codePush from "react-native-code-push"
 
 const {
     StyleSheet,
@@ -27,6 +28,7 @@ class PlayControls extends React.Component {
 
   componentDidMount() {
     MediaPlayer.setStation(this.props)
+    codePush.sync()
   }
 
   _play() {
@@ -62,8 +64,8 @@ class PlayControls extends React.Component {
   render(){
     const pauseButton = this.state.isPlaying ? this.renderPauseButton(0.5) : this.renderPauseButton(1.0)
     const playButton  = this.state.isPlaying ? this.renderPlayButton(1.0) : this.renderPlayButton(0.5)
-
     return(
+      // backgroundColor: 'green'
       <View style={{flex:1, alignItems:'center', justifyContent:'center', flexDirection:'row',overflow:'hidden'}}>
           {pauseButton}
           {playButton}
@@ -71,5 +73,7 @@ class PlayControls extends React.Component {
     )
   }
 }
+
+
 
 export default PlayControls

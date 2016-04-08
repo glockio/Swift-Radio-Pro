@@ -18,16 +18,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
         // Init ReactNativeRootView
-        REACT_DEV_MODE = true
+        REACT_DEV_MODE = false
         
         // Set location of the main js bundle
         var jsCodeLocation = NSURL(string: "http://localhost:8081/index.ios.bundle?platform=ios&dev=true")
         
         if REACT_DEV_MODE == false {
-            //            jsCodeLocation = CodePush.bundleURL()
-            jsCodeLocation = NSBundle.mainBundle().URLForResource("main", withExtension: "jsbundle")
-            
+            jsCodeLocation = CodePush.bundleURL()
         }
+    
         
         reactNativeBridge = RCTBridge(
             bundleURL: jsCodeLocation,

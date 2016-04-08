@@ -9,7 +9,6 @@ const Routeable = NativeModules.Routeable
 class ModalExample extends React.Component {
 
 	closeModal() {
-		console.log("Calling clode modal")
 		Routeable.closeModal()
 	}
 

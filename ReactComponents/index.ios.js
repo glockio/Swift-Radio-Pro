@@ -1,5 +1,4 @@
 import React from 'react-native'
-import codePush from "react-native-code-push"
 import Icon from "react-native-vector-icons/Ionicons"
 import PlayControls from './playControls' // native module example
 import ModalExample from './modalExample'  // modal example
