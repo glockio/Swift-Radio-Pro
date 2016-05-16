@@ -9,6 +9,9 @@
 import UIKit
 import MediaPlayer
 
+
+
+
 //*****************************************************************
 // Protocol
 // Updates the StationsViewController when the track changes
@@ -19,6 +22,8 @@ protocol NowPlayingViewControllerDelegate: class {
     func artworkDidUpdate(track: Track)
     func trackPlayingToggled(track: Track)
 }
+
+
 
 //*****************************************************************
 // NowPlayingViewController
@@ -46,8 +51,9 @@ class NowPlayingViewController: UIViewController {
     let radioPlayer = Player.radio
     var track: Track!
     var mpVolumeSlider = UISlider()
-    
     weak var delegate: NowPlayingViewControllerDelegate?
+
+
     
     //*****************************************************************
     // MARK: - ViewDidLoad
@@ -56,7 +62,6 @@ class NowPlayingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-    
         let stationData: [String:String] = [
             "stationName" : currentStation.stationName,
             "stationStreamURL":currentStation.stationStreamURL,
@@ -73,48 +78,8 @@ class NowPlayingViewController: UIViewController {
 
         // Set View Title
         self.title = currentStation.stationName
-        
-        // Create Now Playing BarItem
-        createNowPlayingAnimation()
-        
-        // Setup MPMoviePlayerController
-        // If you're building an app for a client, you may want to
-        // replace the MediaPlayer player with a more robust 
-        // streaming library/SDK. Preferably one that supports interruptions, etc.
-        // Most of the good streaming libaries are in Obj-C, however they
-        // will work nicely with this Swift code.
-//        setupPlayer()
-        
-        // Notification for when app becomes active
-//        NSNotificationCenter.defaultCenter().addObserver(self,
-//            selector: "didBecomeActiveNotificationReceived",
-//            name:"UIApplicationDidBecomeActiveNotification",
-//            object: nil)
-//        
-//        // Notification for MediaPlayer metadata updated
-//        NSNotificationCenter.defaultCenter().addObserver(self,
-//            selector: Selector("metadataUpdated:"),
-//            name:MPMoviePlayerTimedMetadataUpdatedNotification,
-//            object: nil);
-//        
-        // Check for station change
-//        if newStation {
-//            track = Track()
-////            stationDidChange()
-//            
-//        } else {
-//            updateLabels()
-//            albumImageView.image = track.artworkImage
-//            
-//            if !track.isPlaying {
-//                pausePressed()
-//            } else {
-//                nowPlayingImageView.startAnimating()
-//            }
-//        }
-        
-        // Setup slider
-//        setupVolumeSlider()
+        track = Track()
+        resetAlbumArtwork()
     }
     
     func didBecomeActiveNotificationReceived() {
@@ -134,20 +99,7 @@ class NowPlayingViewController: UIViewController {
             object: nil)
     }
     
-    //*****************************************************************
-    // MARK: - Setup
-    //*****************************************************************
     
-    func setupPlayer() {
-        radioPlayer.view.frame = CGRect(x: 0, y: 0, width: 0, height: 0)
-        radioPlayer.view.sizeToFit()
-        radioPlayer.movieSourceType = MPMovieSourceType.Streaming
-        radioPlayer.fullscreen = false
-        radioPlayer.shouldAutoplay = true
-        radioPlayer.prepareToPlay()
-        radioPlayer.controlStyle = MPMovieControlStyle.None
-    }
-  
     func setupVolumeSlider() {
         // Note: This slider implementation uses a MPVolumeView
         // The volume slider only works in devices, not the simulator.
@@ -165,58 +117,6 @@ class NowPlayingViewController: UIViewController {
         
     }
     
-    func stationDidChange() {
-        radioPlayer.stop()
-        
-        radioPlayer.contentURL = NSURL(string: currentStation.stationStreamURL)
-        radioPlayer.prepareToPlay()
-        radioPlayer.play()
-        
-        updateLabels("Loading Station...")
-        
-        // songLabel animate
-        songLabel.animation = "flash"
-        songLabel.repeatCount = 3
-        songLabel.animate()
-        
-        resetAlbumArtwork()
-        
-        track.isPlaying = true
-    }
-    
-    //*****************************************************************
-    // MARK: - Player Controls (Play/Pause/Volume)
-    //*****************************************************************
-    
-    @IBAction func playPressed() {
-        track.isPlaying = true
-        playButtonEnable(false)
-        radioPlayer.play()
-        updateLabels()
-        
-        // songLabel Animation
-        songLabel.animation = "flash"
-        songLabel.animate()
-        
-        // Start NowPlaying Animation
-        nowPlayingImageView.startAnimating()
-        
-        // Update StationsVC
-        self.delegate?.trackPlayingToggled(self.track)
-    }
-    
-    @IBAction func pausePressed() {
-        track.isPlaying = false
-        
-        playButtonEnable()
-        
-        radioPlayer.pause()
-        updateLabels("Station Paused...")
-        nowPlayingImageView.stopAnimating()
-        
-        // Update StationsVC
-        self.delegate?.trackPlayingToggled(self.track)
-    }
     
     @IBAction func volumeChanged(sender:UISlider) {
         mpVolumeSlider.value = sender.value
@@ -480,84 +380,4 @@ class NowPlayingViewController: UIViewController {
         ]
     }
     
-    override func remoteControlReceivedWithEvent(receivedEvent: UIEvent?) {
-        super.remoteControlReceivedWithEvent(receivedEvent)
-        
-        if receivedEvent!.type == UIEventType.RemoteControl {
-            
-            switch receivedEvent!.subtype {
-            case .RemoteControlPlay:
-                playPressed()
-            case .RemoteControlPause:
-                pausePressed()
-            default:
-                break
-            }
-        }
-    }
-    
-    //*****************************************************************
-    // MARK: - MetaData Updated Notification
-    //*****************************************************************
-    
-    func metadataUpdated(n: NSNotification)
-    {
-        if(radioPlayer.timedMetadata != nil && radioPlayer.timedMetadata.count > 0)
-        {
-            startNowPlayingAnimation()
-            
-            let firstMeta: MPTimedMetadata = radioPlayer.timedMetadata.first as! MPTimedMetadata
-            let metaData = firstMeta.value as! String
-            
-            var stringParts = [String]()
-            if metaData.rangeOfString(" - ") != nil {
-                stringParts = metaData.componentsSeparatedByString(" - ")
-            } else {
-                stringParts = metaData.componentsSeparatedByString("-")
-            }
-            
-            // Set artist & songvariables
-            let currentSongName = track.title
-            track.artist = stringParts[0]
-            track.title = stringParts[0]
-            
-            if stringParts.count > 1 {
-                track.title = stringParts[1]
-            }
-            
-            if track.artist == "" && track.title == "" {
-                track.artist = currentStation.stationDesc
-                track.title = currentStation.stationName
-            }
-            
-            dispatch_async(dispatch_get_main_queue()) {
-                
-                if currentSongName != self.track.title {
-                    
-                    if DEBUG_LOG {
-                        print("METADATA artist: \(self.track.artist) | title: \(self.track.title)")
-                    }
-                    
-                    // Update Labels
-                    self.artistLabel.text = self.track.artist
-                    self.songLabel.text = self.track.title
-                    
-                    // songLabel animation
-                    self.songLabel.animation = "zoomIn"
-                    self.songLabel.duration = 1.5
-                    self.songLabel.damping = 1
-                    self.songLabel.animate()
-                    
-                    // Update Stations Screen
-                    self.delegate?.songMetaDataDidUpdate(self.track)
-                    
-                    // Query API for album art
-                    self.resetAlbumArtwork()
-                    self.queryAlbumArt()
-                    self.updateLockScreen()
-                    
-                }
-            }
-        }
-    }
 }

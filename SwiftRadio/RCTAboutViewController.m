@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "SwiftRadio-Swift.h"
+#import "SwiftRadioB-Swift.h"
 
 //
 //  RCTAboutViewController.m
@@ -41,34 +41,23 @@
     RCTBridge *bridge = delegate.reactNativeBridge;
     
     // Here we create a `RCTRootView` that initializes with the `RCTBridge` that we already pre-loaded.
-    RCTRootView *rootView = [[RCTRootView alloc] initWithBridge:bridge  moduleName:@"SwiftRadio" initialProperties:nil];
-    
-    // Here we are getting access to the already instanciated `Routeable` NativeModule and then
-    // setting this controller as it's `Delegate`. This will enable the Coordinator to execute methods here, without
-    // being coupled to this specific class.
-    
-    // Look up Routeable Module, this is possible because Routeable decalred with RCTBridgeModule.h
-    Routeable *routeableModule = [bridge moduleForName:@"Routeable"];
-    
-    // set self in routebale module to ref this class. Now when methods are called in this module they will exec using this class
-    [routeableModule setDelegate:self];
-    
+    RCTRootView *rootView = [[RCTRootView alloc] initWithBridge:bridge  moduleName:@"FeaturesPage" initialProperties:nil];
     
     // We want this view to take up the entire screen.
     rootView.frame = [UIScreen mainScreen].bounds;
     
     // Set Background image to prevent white flash
     UIImageView *backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"background"]];
+    
     // We want background Image to take up entire screen
     backgroundView.frame = [UIScreen mainScreen].bounds;
+    
     // Add background image
     [self.view addSubview:backgroundView];
-    
     
     // Set rootview backgroundColor to transparent so we see background image on load
     rootView.backgroundColor = [UIColor colorWithWhite:1.0 alpha:0.0];
     
-
     // Here is where we pass down our data that will be a `prop` in the `PassingData` component.
     //    rootView.initialProperties = [self data];
     
@@ -76,11 +65,19 @@
     // to that "base" view so that it is visible on the screen.
     [self.view addSubview:rootView];
     
+    // Look up Routeable Module, this is possible because Routeable decalred with RCTBridgeModule.h
+    Routeable *routeableModule = [bridge moduleForName:@"Routeable"];
+    
+    // set self in routebale module to ref this class. Now when methods are called in this module they will exec using this class
+    [routeableModule setDelegate:self];
+    
 }
 
--(void)popRoute {
-     [self.navigationController popToRootViewControllerAnimated:NO];
+
+-(void) dismissModal {
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
+
 
 // Hide Nav Bar
 -(void)viewWillAppear:(BOOL)animated{

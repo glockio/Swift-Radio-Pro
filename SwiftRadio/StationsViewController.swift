@@ -32,6 +32,7 @@ class StationsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
         // Register 'Nothing Found' cell xib
         let cellNib = UINib(nibName: "NothingFoundCell", bundle: nil)
         tableView.registerNib(cellNib, forCellReuseIdentifier: "NothingFound")
@@ -93,6 +94,9 @@ class StationsViewController: UIViewController {
             let searchTextField = searchController.searchBar.valueForKey("_searchField") as! UITextField
             searchTextField.keyboardAppearance = UIKeyboardAppearance.Dark
         }
+        
+
+
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -226,6 +230,7 @@ class StationsViewController: UIViewController {
                 }
                 nowPlayingVC.currentStation = currentStation
                 nowPlayingVC.newStation = true
+                
             
             } else {
                 // User clicked on a now playing button

@@ -29,6 +29,6 @@
 @protocol RouteableDelegate <NSObject>
 @optional
 
+- (void)dismissModal;
 - (void)popRoute;
-
 @end

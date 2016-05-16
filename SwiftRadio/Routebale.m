@@ -34,6 +34,11 @@ RCT_EXPORT_METHOD(popRoute) {
 
 }
 
+// This is an exported method that is available in JS.
+RCT_EXPORT_METHOD(closeModal) {
+    [self.delegate dismissModal];
+}
+
 
 @end
 

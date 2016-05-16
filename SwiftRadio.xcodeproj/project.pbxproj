@@ -15,8 +15,8 @@
 		37953C231CA688070015AEDA /* Playable.m in Sources */ = {isa = PBXBuildFile; fileRef = 37953C221CA688070015AEDA /* Playable.m */; };
 		37CF7EC91C7ED8A200C0653E /* ReactNativeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37CF7EC81C7ED8A200C0653E /* ReactNativeView.swift */; };
 		37CF7ED01C7EDED200C0653E /* ReactNativeAboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37CF7ECF1C7EDED200C0653E /* ReactNativeAboutViewController.swift */; };
-		37CF7ED31C7EEF1300C0653E /* main.jsbundle in Resources */ = {isa = PBXBuildFile; fileRef = 37CF7ED21C7EEF1300C0653E /* main.jsbundle */; };
 		87A0ECE81CA35B7100FF4DDB /* RNView.m in Sources */ = {isa = PBXBuildFile; fileRef = 87A0ECE71CA35B7100FF4DDB /* RNView.m */; };
+		87DA69D71CB7692F00E73C51 /* main.jsbundle in Resources */ = {isa = PBXBuildFile; fileRef = 87DA69D61CB7692F00E73C51 /* main.jsbundle */; settings = {ASSET_TAGS = (); }; };
 		9409E11C1ABF6FEA00312E2B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9409E11B1ABF6FEA00312E2B /* AppDelegate.swift */; };
 		9409E1241ABF6FEA00312E2B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9409E1221ABF6FEA00312E2B /* Main.storyboard */; };
 		9409E1261ABF6FEA00312E2B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9409E1251ABF6FEA00312E2B /* Images.xcassets */; };
@@ -84,12 +84,12 @@
 		37CF7EC81C7ED8A200C0653E /* ReactNativeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReactNativeView.swift; sourceTree = "<group>"; };
 		37CF7ECA1C7ED9DE00C0653E /* SwiftRadio-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SwiftRadio-Bridging-Header.h"; sourceTree = "<group>"; };
 		37CF7ECF1C7EDED200C0653E /* ReactNativeAboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReactNativeAboutViewController.swift; sourceTree = "<group>"; };
-		37CF7ED21C7EEF1300C0653E /* main.jsbundle */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = main.jsbundle; sourceTree = SOURCE_ROOT; };
 		5C2654A3DC4AF96227CD2C6F /* libPods-SwiftRadio.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SwiftRadio.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		67B003CF3D4A74834FBFD973 /* Pods-SwiftRadio.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftRadio.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftRadio/Pods-SwiftRadio.debug.xcconfig"; sourceTree = "<group>"; };
 		814E323BA3B877F9DC5160B7 /* Pods-SwiftRadio.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftRadio.release.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftRadio/Pods-SwiftRadio.release.xcconfig"; sourceTree = "<group>"; };
 		87A0ECE71CA35B7100FF4DDB /* RNView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNView.m; sourceTree = "<group>"; };
 		87A0ECE91CA35B8000FF4DDB /* RNView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RNView.h; sourceTree = "<group>"; };
+		87DA69D61CB7692F00E73C51 /* main.jsbundle */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = main.jsbundle; sourceTree = SOURCE_ROOT; };
 		9409E1161ABF6FEA00312E2B /* SwiftRadio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftRadio.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9409E11A1ABF6FEA00312E2B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9409E11B1ABF6FEA00312E2B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -203,12 +203,12 @@
 				94E976191B1A8BFB00F52B1E /* Model */,
 				94AC70AF1AD05C7400652982 /* Networking */,
 				9409E11B1ABF6FEA00312E2B /* AppDelegate.swift */,
+				87DA69D61CB7692F00E73C51 /* main.jsbundle */,
 				9409E1221ABF6FEA00312E2B /* Main.storyboard */,
 				9409E1251ABF6FEA00312E2B /* Images.xcassets */,
 				9409E1191ABF6FEA00312E2B /* Supporting Files */,
 				94D260941B45E0BA00DE671C /* UI Helpers */,
 				37CF7EC81C7ED8A200C0653E /* ReactNativeView.swift */,
-				37CF7ED21C7EEF1300C0653E /* main.jsbundle */,
 				37CF7ECA1C7ED9DE00C0653E /* SwiftRadio-Bridging-Header.h */,
 				3740BE2E1C9A8311002407D4 /* CalendarManager-Bridging-Header.h */,
 				3740BE2F1C9A835B002407D4 /* CalendarManagerBridge.m */,
@@ -415,7 +415,7 @@
 				945DB3C51AD5A6E200495EBB /* NothingFoundCell.xib in Resources */,
 				94DB0A9F1B98B762005ED993 /* LoadingView.xib in Resources */,
 				94DB0A9C1B98B762005ED993 /* Info.plist in Resources */,
-				37CF7ED31C7EEF1300C0653E /* main.jsbundle in Resources */,
+				87DA69D71CB7692F00E73C51 /* main.jsbundle in Resources */,
 				9409E1261ABF6FEA00312E2B /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -640,7 +640,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.gregl.SwiftRadio;
-				PRODUCT_NAME = SwiftRadio;
+				PRODUCT_NAME = SwiftRadioB;
 				PROVISIONING_PROFILE = "";
 				SWIFT_INSTALL_OBJC_HEADER = NO;
 				SWIFT_OBJC_BRIDGING_HEADER = "SwiftRadio/SwiftRadio-Bridging-Header.h";
@@ -667,7 +667,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.gregl.SwiftRadio;
-				PRODUCT_NAME = SwiftRadio;
+				PRODUCT_NAME = SwiftRadioB;
 				PROVISIONING_PROFILE = "";
 				SWIFT_INSTALL_OBJC_HEADER = NO;
 				SWIFT_OBJC_BRIDGING_HEADER = "SwiftRadio/SwiftRadio-Bridging-Header.h";

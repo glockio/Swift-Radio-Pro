@@ -13,8 +13,19 @@
 #endif /* Playable_h */
 
 #import "RCTBridgeModule.h"
+#import "STKAudioPlayer.h"
 
-@interface Playable : NSObject <RCTBridgeModule>
+
+@protocol PlayableDlegate<NSObject>
+@optional
 
 
+- (void)playerStateChanged:(STKAudioPlayerState)state previousState:(STKAudioPlayerState)previousState;
+- (void)play;
+- (void)pause;
+@end
+
+@interface Playable : NSObject <RCTBridgeModule, STKAudioPlayerDelegate>
+    @property (weak) id<PlayableDlegate>delegate;
+    @property (readwrite, retain) STKAudioPlayer* audioPlayer;
 @end

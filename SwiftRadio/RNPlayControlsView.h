@@ -14,8 +14,9 @@
 
 
 #import <UIKit/UIKit.h>
+#import  "Playable.h"
 
-@interface RNPlayControlsView : UIView
+@interface RNPlayControlsView : UIView<PlayableDlegate>
 
 @property NSMutableDictionary *data;
 - (void) initializeReactView: (NSDictionary*)currentStation;
